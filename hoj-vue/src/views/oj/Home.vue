@@ -27,7 +27,7 @@
             >
               <el-image
                 :src="item.url"
-                fit="fill"
+                fit="contain"
               >
                 <div
                   slot="error"
@@ -748,5 +748,7 @@ span.rank-tag {
 
 .img-fill{
   display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 </style>

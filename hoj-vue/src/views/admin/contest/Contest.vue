@@ -328,7 +328,7 @@
           </el-col>
 
           <el-col
-            :md="8"
+            :md="6"
             :xs="24"
           >
             <el-form-item
@@ -352,7 +352,7 @@
             </el-form-item>
           </el-col>
           <el-col
-            :md="8"
+            :md="6"
             :xs="24"
           >
             <el-form-item
@@ -361,13 +361,14 @@
               :required="contest.auth != 0"
             >
               <el-input
+                style="width:217px"
                 v-model="contest.pwd"
                 :placeholder="$t('m.Contest_Password')"
               ></el-input>
             </el-form-item>
           </el-col>
           <el-col
-            :md="8"
+            :md="6"
             :xs="24"
           >
             <el-form-item

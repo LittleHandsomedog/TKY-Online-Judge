@@ -21,6 +21,7 @@ import ContestComment from "@/views/oj/contest/children/ContestComment.vue"
 import ContestPrint from "@/views/oj/contest/children/ContestPrint.vue"
 import ContestAdminPrint from "@/views/oj/contest/children/ContestAdminPrint.vue"
 import ScrollBoard from "@/views/oj/contest/children/ScrollBoard.vue"
+import AdvanceSubmit from "@/views/oj/contest/children/AdvanceSubmit.vue"
 import ContestRejudgeAdmin from "@/views/oj/contest/children/ContestRejudgeAdmin.vue"
 import DiscussionList from "@/views/oj/discussion/discussionList.vue"
 import Discussion from "@/views/oj/discussion/discussion.vue"
@@ -221,6 +222,12 @@ const ojRoutes = [
         path:'scroll-board',
         component: ScrollBoard,
         meta: { title: 'Contest Scroll Board'}
+      },
+      {
+        name: 'AdvanceSubmit',
+        path: 'advance-submit',
+        component: AdvanceSubmit,
+        meta: { title: 'Contest Advance Submit'}
       }
     ]
   },

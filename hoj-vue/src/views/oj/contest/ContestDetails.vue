@@ -335,6 +335,20 @@
           </transition>
         </el-tab-pane>
 
+        <el-tab-pane
+          name="AdvanceSubmit"
+          lazy
+        >
+          <span slot="label"
+            ><i class="el-icon-s-release" aria-hidden="true"></i>&nbsp;{{
+              $t('m.AdvanceSubmit')
+            }}</span
+          >
+          <transition name="el-zoom-in-bottom">
+            <router-view v-if="route_name === 'AdvanceSubmit'"></router-view>
+          </transition>
+        </el-tab-pane>
+
       </el-tabs>
     </div>
   </div>

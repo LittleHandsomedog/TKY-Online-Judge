@@ -425,6 +425,7 @@ export const m = {
   Admin_Print: '管理打印',
   Admin_Helper: 'AC助手',
   ScrollBoard: '滚榜',
+  AdvanceSubmit: '提前交卷',
   Register_contest_successfully: '比赛报名成功',
   Please_check_the_contest_announcement_for_details: '具体内容请查看比赛公告',
   Go_To_Group_Contest_List:'前往团队比赛列表',
