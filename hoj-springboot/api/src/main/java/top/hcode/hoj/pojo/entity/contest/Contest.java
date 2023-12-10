@@ -90,6 +90,12 @@ public class Contest implements Serializable {
     @ApiModelProperty(value = "账号限制规则 <prefix>**</prefix><suffix>**</suffix><start>**</start><end>**</end><extra>**</extra>")
     private String accountLimitRule;
 
+    @ApiModelProperty(value = "是否打开IP限制")
+    private Boolean openIpLimit;
+
+    @ApiModelProperty(value = "IP限制范围")
+    private String ipRanges;
+
     @ApiModelProperty(value = "排行榜显示（username、nickname、realname）")
     private String rankShowName;
 

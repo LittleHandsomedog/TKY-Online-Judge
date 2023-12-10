@@ -24,6 +24,7 @@ import top.hcode.hoj.pojo.vo.ContestAwardConfigVO;
 import top.hcode.hoj.shiro.AccountProfile;
 import top.hcode.hoj.utils.Constants;
 import top.hcode.hoj.validator.ContestValidator;
+import top.hcode.hoj.validator.IpAddressValidator;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -47,6 +48,9 @@ public class AdminContestManager {
 
     @Autowired
     private ContestValidator contestValidator;
+
+    @Autowired
+    private IpAddressValidator ipAddressValidator;
 
     public IPage<Contest> getContestList(Integer limit, Integer currentPage, String keyword) {
 
@@ -142,6 +146,17 @@ public class AdminContestManager {
             contest.setAwardConfig(awardConfigJson.toString());
         }
 
+        //如果IP无效则报错
+        if (adminContestVo.getOpenIpLimit() && !ipAddressValidator.isValidIpAddress(adminContestVo.getIpRanges())){
+
+            throw new StatusFailException("不是一个有效的IP");
+        }
+        //如果IP有效但起始IP大于结束IP则报错
+        if (adminContestVo.getOpenIpLimit() && !ipAddressValidator.compareIpAddresses(adminContestVo.getIpRanges())){
+
+            throw new StatusFailException("结束IP必须大于起始IP");
+        }
+
         boolean isOk = contestEntityService.save(contest);
         if (!isOk) { // 删除成功
             throw new StatusFailException("添加失败");
@@ -191,12 +206,27 @@ public class AdminContestManager {
             contest.setAwardConfig(awardConfigJson.toString());
         }
 
+        //如果IP无效则报错
+        if (adminContestVo.getOpenIpLimit() && !ipAddressValidator.isValidIpAddress(adminContestVo.getIpRanges())){
+
+            throw new StatusFailException("不是一个有效的IP");
+        }
+        //如果IP有效但起始IP大于结束IP则报错
+        if (adminContestVo.getOpenIpLimit() && !ipAddressValidator.compareIpAddresses(adminContestVo.getIpRanges())){
+
+            throw new StatusFailException("结束IP必须大于起始IP");
+        }
 
         Contest oldContest = contestEntityService.getById(contest.getId());
         boolean isOk = contestEntityService.saveOrUpdate(contest);
         if (isOk) {
             if (!contest.getAuth().equals(Constants.Contest.AUTH_PUBLIC.getCode())) {
                 if (!Objects.equals(oldContest.getPwd(), contest.getPwd())) { // 改了比赛密码则需要删掉已有的注册比赛用户
+                    UpdateWrapper<ContestRegister> updateWrapper = new UpdateWrapper<>();
+                    updateWrapper.eq("cid", contest.getId());
+                    contestRegisterEntityService.remove(updateWrapper);
+                }
+                if (!Objects.equals(oldContest.getIpRanges(), contest.getIpRanges())) { // 改了比赛IP则需要删掉已有的注册比赛用户
                     UpdateWrapper<ContestRegister> updateWrapper = new UpdateWrapper<>();
                     updateWrapper.eq("cid", contest.getId());
                     contestRegisterEntityService.remove(updateWrapper);

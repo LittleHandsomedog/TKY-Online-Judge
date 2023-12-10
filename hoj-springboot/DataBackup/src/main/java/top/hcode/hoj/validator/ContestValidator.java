@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import top.hcode.hoj.common.exception.StatusFailException;
 import top.hcode.hoj.common.exception.StatusForbiddenException;
 import top.hcode.hoj.dao.contest.ContestRegisterEntityService;
@@ -13,8 +15,10 @@ import top.hcode.hoj.pojo.entity.contest.ContestRegister;
 import top.hcode.hoj.pojo.vo.AdminContestVO;
 import top.hcode.hoj.shiro.AccountProfile;
 import top.hcode.hoj.utils.Constants;
+import top.hcode.hoj.utils.IpUtils;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.Objects;
 
@@ -31,6 +35,9 @@ public class ContestValidator {
 
     @Autowired
     private GroupValidator groupValidator;
+
+    @Autowired
+    private IpAddressValidator ipAddressValidator;
 
     @Resource
     private CommonValidator commonValidator;
@@ -140,6 +147,14 @@ public class ContestValidator {
             // 如果还没注册
             if (register == null) {
                 throw new StatusForbiddenException("对不起，请你先注册该比赛，提交代码失败！");
+            }
+            // 获取当前登录的用户的IP
+            ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+            HttpServletRequest request = servletRequestAttributes.getRequest();
+            String userIpAddr = IpUtils.getUserIpAddr(request);
+            if(contest.getOpenIpLimit()
+                    && !ipAddressValidator.isIpInRange(userIpAddr,contest.getIpRanges())){
+                throw new StatusForbiddenException("对不起！本次比赛只允许特定IP地址用户参赛！");
             }
         }
     }

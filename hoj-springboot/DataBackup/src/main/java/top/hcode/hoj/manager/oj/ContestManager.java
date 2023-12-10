@@ -7,6 +7,8 @@ import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import top.hcode.hoj.common.exception.StatusFailException;
 import top.hcode.hoj.common.exception.StatusForbiddenException;
 import top.hcode.hoj.common.exception.StatusNotFoundException;
@@ -28,10 +30,13 @@ import top.hcode.hoj.pojo.entity.problem.*;
 import top.hcode.hoj.pojo.vo.*;
 import top.hcode.hoj.shiro.AccountProfile;
 import top.hcode.hoj.utils.Constants;
+import top.hcode.hoj.utils.IpUtils;
 import top.hcode.hoj.utils.RedisUtils;
 import top.hcode.hoj.validator.ContestValidator;
 import top.hcode.hoj.validator.GroupValidator;
+import top.hcode.hoj.validator.IpAddressValidator;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -103,6 +108,9 @@ public class ContestManager {
     @Autowired
     private GroupValidator groupValidator;
 
+    @Autowired
+    private IpAddressValidator ipAddressValidator;
+
     public IPage<ContestVO> getContestList(Integer limit, Integer currentPage, Integer status, Integer type, String keyword) {
         // 页数，每页题数若为空，设置默认值
         if (currentPage == null || currentPage < 1) currentPage = 1;
@@ -147,6 +155,11 @@ public class ContestManager {
         // 获取当前登录的用户
         AccountProfile userRolesVo = (AccountProfile) SecurityUtils.getSubject().getPrincipal();
 
+        // 获取当前登录的用户的IP
+        ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletRequest request = servletRequestAttributes.getRequest();
+        String userIpAddr = IpUtils.getUserIpAddr(request);
+
         boolean isRoot = SecurityUtils.getSubject().hasRole("root");
 
         Contest contest = contestEntityService.getById(cid);
@@ -165,12 +178,17 @@ public class ContestManager {
             throw new StatusFailException("比赛密码错误，请重新输入！");
         }
 
+        // 需要校验当前比赛是否开启IP规则限制，如果有，需要对当前用户的IP进行验证
+        if(contest.getOpenIpLimit()
+                && !ipAddressValidator.isIpInRange(userIpAddr,contest.getIpRanges())){
+            throw new StatusFailException("对不起！本次比赛只允许特定IP地址用户参赛！");
+        }
+
         // 需要校验当前比赛是否开启账号规则限制，如果有，需要对当前用户的用户名进行验证
         if (contest.getOpenAccountLimit()
                 && !contestValidator.validateAccountRule(contest.getAccountLimitRule(), userRolesVo.getUsername())) {
             throw new StatusFailException("对不起！本次比赛只允许特定账号规则的用户参赛！");
         }
-
 
         QueryWrapper<ContestRegister> wrapper = new QueryWrapper<ContestRegister>().eq("cid", cid)
                 .eq("uid", userRolesVo.getUid());
