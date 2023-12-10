@@ -635,8 +635,9 @@ export default {
 .vertical_menu .logo img {
   background-color: #fff;
   border: 3px solid #fff;
-  width: 110px;
+  width: 150px;
   height: 110px;
+  object-fit: scale-down;
 }
 .fa-size {
   text-align: center;

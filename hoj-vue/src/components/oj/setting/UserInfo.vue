@@ -130,7 +130,7 @@
     <el-form ref="formProfile" :model="formProfile">
       <el-row :gutter="30" justify="space-around">
         <el-col :md="10" :xs="24">
-          <el-form-item :label="$t('m.RealName')">
+          <el-form-item :label="$t('m.RealName')" v-if="false">
             <el-input v-model="formProfile.realname" :maxlength="50" />
           </el-form-item>
           <el-form-item :label="$t('m.Nickname')">

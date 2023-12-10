@@ -23,6 +23,7 @@
             <el-carousel-item
               v-for="(item, index) in carouselImgList"
               :key="index"
+              class="img-fill"
             >
               <el-image
                 :src="item.url"
@@ -743,5 +744,9 @@ span.rank-tag {
   /deep/ .vxe-table--body-wrapper {
     overflow-x: hidden !important;
   }
+}
+
+.img-fill{
+  display: flex;
 }
 </style>

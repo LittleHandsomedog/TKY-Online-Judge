@@ -95,6 +95,7 @@
             <el-form-item :label="$t('m.New_Email')" prop="newEmail">
               <el-input v-model="formEmail.newEmail">
                 <el-button slot="append"
+                v-if="false"
                 @click="getChangeEmailCode"
                 :loading="loading.btnSendEmail"
                 icon="el-icon-message">
@@ -115,6 +116,7 @@
             <el-button
               type="primary"
               slot="reference"
+              v-if="false"
               :loading="loading.btnEmailLoading"
               :disabled="disabled.btnEmail"
               >{{ $t('m.Update_Email') }}</el-button

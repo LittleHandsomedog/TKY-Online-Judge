@@ -73,6 +73,7 @@
         >{{ $t('m.Login_No_Account') }}</el-link
       >
       <el-link
+        v-if="false"
         type="primary"
         @click="switchMode('ResetPwd')"
         style="float: right"

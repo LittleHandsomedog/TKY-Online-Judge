@@ -378,6 +378,18 @@
               <el-switch v-model="contest.openAccountLimit"> </el-switch>
             </el-form-item>
           </el-col>
+          <el-col
+            :md="6"
+            :xs="24"
+          >
+            <el-form-item
+              :label="$t('m.IP_Limit')"
+              v-show="contest.auth != 0"
+              :required="contest.auth != 0"
+            >
+              <el-switch v-model="contest.openIpLimit"> </el-switch>
+            </el-form-item>
+          </el-col>
 
           <template v-if="contest.openAccountLimit">
             <el-form :model="formRule">
@@ -475,6 +487,32 @@
                 </el-form-item>
               </el-col>
             </el-form>
+          </template>
+
+          <template v-if="contest.openIpLimit">
+            <el-col
+              :md="24"
+              :xs="24"
+            >
+              <el-form-item
+                :label="$t('m.Allowed_IP_Ranges')"
+                required
+                style="margin-bottom:-10px"
+              >
+              </el-form-item>
+            </el-col>
+            <div v-for="(range, index) in ipRanges" :key="index">
+              <el-col :span="5">
+                <el-input v-model="range.start" :placeholder="$t('m.Start_Network')" style="margin:10px 0px"></el-input>
+              </el-col>
+              <el-col :span="5">
+                <el-input v-model="range.end" :placeholder="$t('m.End_Network')" style="margin:10px 15px"></el-input>
+              </el-col>
+              <el-col :span="10">
+                <el-button plain icon="el-icon-plus" @click="addIPRange" style="margin:10px 0px 10px 25px"></el-button>
+                <el-button plain icon="el-icon-delete" @click="removeIPRange(range)" :disabled="ipRanges.length==1"></el-button>
+              </el-col>
+            </div>
           </template>
 
           <el-col
@@ -695,6 +733,7 @@ export default {
             num: 30,
           },
         ],
+        ipRanges: ''
       },
       formRule: {
         prefix: "",
@@ -703,6 +742,10 @@ export default {
         number_to: 10,
         extra_account: "",
       },
+      ipRanges: [{
+          start: '',
+          end:''
+      }],
       starUserInput: "",
       inputVisible: false,
     };
@@ -740,6 +783,7 @@ export default {
         .then((res) => {
           let data = res.data.data;
           this.contest = data;
+          this.changeStrToipRanges(data.ipRanges);
           this.changeDuration();
           // 封榜时间转换
           let halfHour = moment(this.contest.endTime)
@@ -818,6 +862,10 @@ export default {
         this.contest.accountLimitRule = this.changeAccountRuleToStr(
           this.formRule
         );
+      }
+
+      if (this.contest.openIpLimit){
+        this.contest.ipRanges = this.changeipRangesToStr()
       }
 
       let funcName =
@@ -1019,6 +1067,34 @@ export default {
         }, 300);
       }
     },
+
+    addIPRange () {
+      this.ipRanges.push({start: '', end: ''})
+    },
+
+    removeIPRange (range) {
+      let index = this.ipRanges.indexOf(range)
+      if (index !== -1) {
+        this.ipRanges.splice(index, 1)
+      }
+    },
+
+    changeipRangesToStr(){
+      return this.ipRanges.map(item => `${item.start},${item.end}`).join(';')
+    },
+    
+    changeStrToipRanges(ipString){
+      let ipRangesArray = ipString.split(';');
+      // 使用 map 方法处理每个 IP 地址范围，将其转换为对象格式
+      this.ipRanges = ipRangesArray.map(ipRange => {
+        // 使用 split 方法按逗号分割每个 IP 地址范围，得到起始和结束 IP
+        let [start, end] = ipRange.split(',');
+        return {
+          start: start,
+          end: end
+        };
+      });
+    }
   },
 };
 </script>
