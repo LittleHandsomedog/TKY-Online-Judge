@@ -504,10 +504,10 @@
             </el-col>
             <div v-for="(range, index) in ipRanges" :key="index">
               <el-col :span="5">
-                <el-input v-model="range.start" :placeholder="$t('m.Start_Network')" style="margin:10px 0px"></el-input>
+                <el-input v-model.trim="range.start" :placeholder="$t('m.Start_Network')" style="margin:10px 0px"></el-input>
               </el-col>
               <el-col :span="5">
-                <el-input v-model="range.end" :placeholder="$t('m.End_Network')" style="margin:10px 15px"></el-input>
+                <el-input v-model.trim="range.end" :placeholder="$t('m.End_Network')" style="margin:10px 15px"></el-input>
               </el-col>
               <el-col :span="10">
                 <el-button plain icon="el-icon-plus" @click="addIPRange" style="margin:10px 0px 10px 25px"></el-button>
@@ -706,6 +706,7 @@ export default {
         openPrint: false,
         rankShowName: "username",
         openAccountLimit: false,
+        openIpLimit: false,
         allowEndSubmit: false,
         accountLimitRule: "",
         starAccount: [],

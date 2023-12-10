@@ -27,16 +27,27 @@ public class IpAddressValidator {
                     "([01]?\\d\\d?|2[0-4]\\d|25[0-5])$";
     private static final Pattern pattern = Pattern.compile(IP_ADDRESS_PATTERN);
 
+    public boolean isEmpty(String ipAddressArr){
+        if (ipAddressArr == null || ipAddressArr.trim().isEmpty() || ipAddressArr.equals(",")) {
+            return true;
+        }
+        String[] arr = ipAddressArr.split(";");
+        for (String paris : arr) {
+            String[] pari = paris.split(",");
+            if(pari.length<=1 || pari[0].isEmpty()){
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * 判断给定的 IP 地址字符串是否有效。
      *
      * @param ipAddressArr 包含 IP 地址范围的字符串，多个范围用分号隔开，每个范围用逗号隔开。
      * @return 如果所有范围内的 IP 地址都有效，则返回 true；否则返回 false。
      */
-    public static boolean isValidIpAddress(String ipAddressArr) {
-        if (ipAddressArr == null || ipAddressArr.trim().isEmpty()) {
-            return false;
-        }
+    public boolean isValidIpAddress(String ipAddressArr) {
         String[] arr = ipAddressArr.split(";");
         for (String paris : arr) {
             String[] pari = paris.split(",");
@@ -52,16 +63,6 @@ public class IpAddressValidator {
         return true;
     }
 
-    private static long ipToLong(InetAddress ipAddress) {
-        byte[] octets = ipAddress.getAddress();
-        long result = 0;
-        for (byte octet : octets) {
-            result <<= 8;
-            result |= octet & 0xFF;
-        }
-        return result;
-    }
-
     /**
      * 比较给定的 IP 地址范围是否有效。
      *
@@ -70,9 +71,6 @@ public class IpAddressValidator {
      */
     public boolean compareIpAddresses(String ipAddressArr) {
         try {
-            if (ipAddressArr == null || ipAddressArr.trim().isEmpty()) {
-                return false;
-            }
             String[] arr = ipAddressArr.split(";");
             for (String paris : arr) {
                 String[] pari = paris.split(",");
@@ -127,5 +125,15 @@ public class IpAddressValidator {
             e.printStackTrace();
             return false;
         }
+    }
+
+    private long ipToLong(InetAddress ipAddress) {
+        byte[] octets = ipAddress.getAddress();
+        long result = 0;
+        for (byte octet : octets) {
+            result <<= 8;
+            result |= octet & 0xFF;
+        }
+        return result;
     }
 }

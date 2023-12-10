@@ -146,16 +146,8 @@ public class AdminContestManager {
             contest.setAwardConfig(awardConfigJson.toString());
         }
 
-        //如果IP无效则报错
-        if (adminContestVo.getOpenIpLimit() && !ipAddressValidator.isValidIpAddress(adminContestVo.getIpRanges())){
-
-            throw new StatusFailException("不是一个有效的IP");
-        }
-        //如果IP有效但起始IP大于结束IP则报错
-        if (adminContestVo.getOpenIpLimit() && !ipAddressValidator.compareIpAddresses(adminContestVo.getIpRanges())){
-
-            throw new StatusFailException("结束IP必须大于起始IP");
-        }
+        //判断是否开启IP限制
+        haveOpenIpLimit(adminContestVo);
 
         boolean isOk = contestEntityService.save(contest);
         if (!isOk) { // 删除成功
@@ -206,16 +198,8 @@ public class AdminContestManager {
             contest.setAwardConfig(awardConfigJson.toString());
         }
 
-        //如果IP无效则报错
-        if (adminContestVo.getOpenIpLimit() && !ipAddressValidator.isValidIpAddress(adminContestVo.getIpRanges())){
-
-            throw new StatusFailException("不是一个有效的IP");
-        }
-        //如果IP有效但起始IP大于结束IP则报错
-        if (adminContestVo.getOpenIpLimit() && !ipAddressValidator.compareIpAddresses(adminContestVo.getIpRanges())){
-
-            throw new StatusFailException("结束IP必须大于起始IP");
-        }
+        //判断是否开启IP限制
+        haveOpenIpLimit(adminContestVo);
 
         Contest oldContest = contestEntityService.getById(contest.getId());
         boolean isOk = contestEntityService.saveOrUpdate(contest);
@@ -256,4 +240,20 @@ public class AdminContestManager {
                 "Admin_Contest", "Change_Visible", visible, cid, userRolesVo.getUid(), userRolesVo.getUsername());
     }
 
+    private void haveOpenIpLimit(AdminContestVO adminContestVo) throws StatusFailException {
+        if (adminContestVo.getOpenIpLimit()){
+            //判断是否为空
+            if(ipAddressValidator.isEmpty(adminContestVo.getIpRanges())){
+                throw new StatusFailException("IP地址不允许为空");
+            }
+            //判断是否有效
+            if(ipAddressValidator.isValidIpAddress(adminContestVo.getIpRanges())){
+                throw new StatusFailException("不是一个有效的IP");
+            }
+            //如果IP有效但起始IP大于结束IP则报错
+            if (!ipAddressValidator.compareIpAddresses(adminContestVo.getIpRanges())){
+                throw new StatusFailException("结束IP必须大于起始IP");
+            }
+        }
+    }
 }
