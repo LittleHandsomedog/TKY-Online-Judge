@@ -247,7 +247,7 @@ public class AdminContestManager {
                 throw new StatusFailException("IP地址不允许为空");
             }
             //判断是否有效
-            if(ipAddressValidator.isValidIpAddress(adminContestVo.getIpRanges())){
+            if(!ipAddressValidator.isValidIpAddress(adminContestVo.getIpRanges())){
                 throw new StatusFailException("不是一个有效的IP");
             }
             //如果IP有效但起始IP大于结束IP则报错

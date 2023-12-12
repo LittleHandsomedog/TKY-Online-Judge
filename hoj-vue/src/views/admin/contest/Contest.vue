@@ -773,7 +773,7 @@ export default {
         this.disableRuleType = false;
         this.contest = {};
       }
-    },
+    }
   },
   computed: {
     ...mapGetters(["userInfo"]),
@@ -865,11 +865,11 @@ export default {
           this.formRule
         );
       }
-
       if (this.contest.openIpLimit){
         this.contest.ipRanges = this.changeipRangesToStr()
+      }else{
+        this.contest.ipRanges = ''
       }
-
       let funcName =
         this.$route.name === "admin-edit-contest"
           ? "admin_editContest"
