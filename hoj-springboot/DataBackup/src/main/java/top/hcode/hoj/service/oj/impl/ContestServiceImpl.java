@@ -13,6 +13,7 @@ import top.hcode.hoj.pojo.dto.ContestRankDTO;
 import top.hcode.hoj.pojo.dto.RegisterContestDTO;
 import top.hcode.hoj.pojo.dto.UserReadContestAnnouncementDTO;
 import top.hcode.hoj.pojo.entity.common.Announcement;
+import top.hcode.hoj.pojo.entity.contest.ContestRegister;
 import top.hcode.hoj.pojo.vo.*;
 import top.hcode.hoj.service.oj.ContestService;
 
@@ -158,5 +159,20 @@ public class ContestServiceImpl implements ContestService {
         } catch (StatusForbiddenException e) {
             return CommonResult.errorResponse(e.getMessage(), ResultStatus.FORBIDDEN);
         }
+    }
+
+    @Override
+    public CommonResult<Void> advanceSubmit(Long cid) {
+        try{
+            contestManager.advanceSubmit(cid);
+            return CommonResult.successResponse();
+        }catch (StatusFailException e) {
+            return CommonResult.errorResponse(e.getMessage());
+        }
+    }
+
+    @Override
+    public CommonResult<List<ContestRegister>> getAdvanceSubmit(Long cid) {
+        return CommonResult.successResponse(contestManager.getAdvanceSubmit(cid));
     }
 }

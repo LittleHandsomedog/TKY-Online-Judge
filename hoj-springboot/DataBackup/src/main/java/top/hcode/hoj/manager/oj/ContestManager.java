@@ -3,6 +3,7 @@ package top.hcode.hoj.manager.oj;
 import cn.hutool.core.collection.CollectionUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.sun.org.apache.bcel.internal.generic.NEW;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -12,6 +13,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import top.hcode.hoj.common.exception.StatusFailException;
 import top.hcode.hoj.common.exception.StatusForbiddenException;
 import top.hcode.hoj.common.exception.StatusNotFoundException;
+import top.hcode.hoj.common.result.CommonResult;
 import top.hcode.hoj.dao.common.AnnouncementEntityService;
 import top.hcode.hoj.dao.contest.*;
 import top.hcode.hoj.dao.group.GroupMemberEntityService;
@@ -28,6 +30,7 @@ import top.hcode.hoj.pojo.entity.contest.*;
 import top.hcode.hoj.pojo.entity.judge.Judge;
 import top.hcode.hoj.pojo.entity.problem.*;
 import top.hcode.hoj.pojo.vo.*;
+import top.hcode.hoj.service.oj.ContestService;
 import top.hcode.hoj.shiro.AccountProfile;
 import top.hcode.hoj.utils.Constants;
 import top.hcode.hoj.utils.IpUtils;
@@ -198,7 +201,10 @@ public class ContestManager {
 
         boolean isOk = contestRegisterEntityService.saveOrUpdate(new ContestRegister()
                 .setCid(cid)
-                .setUid(userRolesVo.getUid()));
+                .setUid(userRolesVo.getUid())
+                .setUsername(userRolesVo.getUsername())
+                .setNickname(userRolesVo.getNickname())
+                .setRealname(userRolesVo.getRealname()));
 
         if (!isOk) {
             throw new StatusFailException("校验比赛密码失败，请稍后再试");
@@ -714,4 +720,45 @@ public class ContestManager {
 
     }
 
+    public void advanceSubmit(Long cid) throws StatusFailException {
+        // 获取当前登录的用户
+        AccountProfile userRolesVo = (AccountProfile) SecurityUtils.getSubject().getPrincipal();
+        // 获取比赛注册列表中的用户
+        QueryWrapper<ContestRegister> wrapper = new QueryWrapper<ContestRegister>().eq("cid", cid)
+                .eq("uid", userRolesVo.getUid());
+        //如果为NULL则未注册
+        if (contestRegisterEntityService.getOne(wrapper, false) == null) {
+            throw new StatusFailException("未查到你比赛的注册信息！");
+        }
+        //新建contestRegister实体类
+        ContestRegister contestRegister = new ContestRegister();
+        //设置用户注册的状态为1(默认为0表示正常，1为失效)
+        contestRegister.setStatus(1);
+        //根据实体类修改对应的用户信息状态
+        boolean isOk = contestRegisterEntityService.update(contestRegister,wrapper);
+        if (!isOk) {
+            throw new StatusFailException("提交失败");
+        }
+    }
+
+    public List<ContestRegister> getAdvanceSubmit(Long cid){
+        // 获取当前登录的用户
+        AccountProfile userRolesVo = (AccountProfile) SecurityUtils.getSubject().getPrincipal();
+        // 超级管理员或者该比赛的创建者，则为比赛管理者
+        boolean isRoot = SecurityUtils.getSubject().hasRole("root");
+        if(isRoot){
+            return contestRegisterEntityService.list(
+                    new QueryWrapper<ContestRegister>()
+                            .eq("cid", cid));
+        }
+        QueryWrapper<ContestRegister> wrapper = new QueryWrapper<ContestRegister>().eq("cid", cid)
+                .eq("uid", userRolesVo.getUid())
+                .eq("status",1);
+        List<ContestRegister> list = contestRegisterEntityService.list(wrapper);
+        if (list.isEmpty()) {
+            return list;
+        }
+        list.get(0).setStatus(3);
+        return list;
+    }
 }

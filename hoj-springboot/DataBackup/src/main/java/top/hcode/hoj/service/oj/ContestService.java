@@ -1,12 +1,15 @@
 package top.hcode.hoj.service.oj;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import top.hcode.hoj.common.exception.StatusForbiddenException;
+import top.hcode.hoj.common.exception.StatusNotFoundException;
 import top.hcode.hoj.common.result.CommonResult;
 import top.hcode.hoj.pojo.dto.ContestPrintDTO;
 import top.hcode.hoj.pojo.dto.ContestRankDTO;
 import top.hcode.hoj.pojo.dto.RegisterContestDTO;
 import top.hcode.hoj.pojo.dto.UserReadContestAnnouncementDTO;
 import top.hcode.hoj.pojo.entity.common.Announcement;
+import top.hcode.hoj.pojo.entity.contest.ContestRegister;
 import top.hcode.hoj.pojo.vo.*;
 
 import java.util.List;
@@ -44,4 +47,7 @@ public interface ContestService {
 
     public CommonResult<Void> submitPrintText(ContestPrintDTO contestPrintDto);
 
+    public CommonResult<Void> advanceSubmit(Long cid);
+
+    public CommonResult<List<ContestRegister>> getAdvanceSubmit(Long cid);
 }

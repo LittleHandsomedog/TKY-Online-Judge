@@ -12,6 +12,7 @@ import top.hcode.hoj.pojo.dto.ContestRankDTO;
 import top.hcode.hoj.pojo.dto.RegisterContestDTO;
 import top.hcode.hoj.pojo.dto.UserReadContestAnnouncementDTO;
 import top.hcode.hoj.pojo.entity.common.Announcement;
+import top.hcode.hoj.pojo.entity.contest.ContestRegister;
 import top.hcode.hoj.pojo.vo.*;
 import top.hcode.hoj.service.oj.ContestService;
 
@@ -194,5 +195,15 @@ public class ContestController {
         return contestService.submitPrintText(contestPrintDto);
     }
 
+    @GetMapping("/advance-submit")
+    @RequiresAuthentication
+    public CommonResult<Void> advanceSubmit(@RequestParam(value = "cid", required = true) Long cid){
+        return contestService.advanceSubmit(cid);
+    }
 
+    @GetMapping("/get-advance-submit")
+    @RequiresAuthentication
+    public CommonResult<List<ContestRegister>> getAdvanceSubmit(@RequestParam(value = "cid", required = true) Long cid){
+        return contestService.getAdvanceSubmit(cid);
+    }
 }

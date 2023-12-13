@@ -148,6 +148,9 @@ public class ContestValidator {
             if (register == null) {
                 throw new StatusForbiddenException("对不起，请你先注册该比赛，提交代码失败！");
             }
+            if (register.getStatus() == 1 && contest.getStatus().intValue() == Constants.Contest.STATUS_RUNNING.getCode()){
+                throw new StatusForbiddenException("对不起，你已交卷，提交代码失败！");
+            }
             // 获取当前登录的用户的IP
             ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
             HttpServletRequest request = servletRequestAttributes.getRequest();

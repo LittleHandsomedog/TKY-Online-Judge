@@ -629,6 +629,20 @@ const ojApi = {
     })
   },
 
+  //提前交卷
+  advanceSubmit(cid){
+    return ajax('/api/advance-submit','get',{
+      params:{cid}
+    })
+  },
+
+  //提前交卷
+  getAdvanceSubmit(cid){
+    return ajax('/api/get-advance-submit','get',{
+      params:{cid}
+    })
+  },
+
   // 获取比赛打印文本列表
   getContestPrintList(params) {
     return ajax('/api/get-contest-print', 'get', {

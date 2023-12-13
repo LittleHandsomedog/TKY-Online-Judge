@@ -368,7 +368,7 @@
             </el-form-item>
           </el-col>
           <el-col
-            :md="6"
+            :md="4"
             :xs="24"
           >
             <el-form-item
@@ -380,7 +380,7 @@
             </el-form-item>
           </el-col>
           <el-col
-            :md="6"
+            :md="4"
             :xs="24"
           >
             <el-form-item
@@ -389,6 +389,19 @@
               :required="contest.auth != 0"
             >
               <el-switch v-model="contest.openIpLimit"> </el-switch>
+            </el-form-item>
+          </el-col>
+
+          <el-col
+            :md="4"
+            :xs="24"
+          >
+            <el-form-item
+              :label="$t('m.Advance_Submit')"
+              v-show="contest.auth != 0"
+              :required="contest.auth != 0"
+            >
+              <el-switch v-model="contest.advanceSubmit"> </el-switch>
             </el-form-item>
           </el-col>
 
@@ -709,6 +722,7 @@ export default {
         openIpLimit: false,
         allowEndSubmit: false,
         accountLimitRule: "",
+        advanceSubmit:false,
         starAccount: [],
         oiRankScoreType: "Recent",
         awardType: 0,

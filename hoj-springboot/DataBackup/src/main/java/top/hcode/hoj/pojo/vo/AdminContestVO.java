@@ -82,6 +82,9 @@ public class AdminContestVO {
     @ApiModelProperty(value = "IP限制范围")
     private String ipRanges;
 
+    @ApiModelProperty(value = "是否开启提前交卷")
+    private Boolean advanceSubmit;
+
     @ApiModelProperty(value = "排行榜显示（username、nickname、realname）")
     private String rankShowName;
 

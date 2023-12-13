@@ -38,6 +38,15 @@ public class ContestRegister implements Serializable {
     @ApiModelProperty(value = "用户id")
     private String uid;
 
+    @ApiModelProperty(value = "用户名")
+    private String username;
+
+    @ApiModelProperty(value = "昵称")
+    private String nickname;
+
+    @ApiModelProperty(value = "真实姓名")
+    private String realname;
+
     @ApiModelProperty(value = "默认为0表示正常，1为失效。")
     private Integer status;
 
@@ -46,6 +55,8 @@ public class ContestRegister implements Serializable {
 
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date gmtModified;
+
+
 
 
 }

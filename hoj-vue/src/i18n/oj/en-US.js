@@ -422,7 +422,7 @@ export const m = {
   Admin_Print: 'Admin Print',
   Admin_Helper: 'AC Info',
   ScrollBoard: 'Scroll Board',
-  AdvanceSubmit: 'Advance Submit',
+  Advance_Submit: 'Advance Submit',
   Register_contest_successfully: 'Register contest successfully',
   Please_check_the_contest_announcement_for_details: 'Please check the contest announcement for details',
   Go_To_Group_Contest_List:'Go to Group Contest List',
