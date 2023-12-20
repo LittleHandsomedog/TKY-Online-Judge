@@ -6,14 +6,10 @@
            class="header">
         <span class="title">提前结束答题</span>
         <el-button type="danger"
-                   @click="advanceSubmit"
-                   :disabled="input!==`失去`">提前结束答题</el-button>
+                   @click="advanceSubmit">提前结束答题</el-button>
       </div>
       <div class="body">
-        <p class="content">本人明确理解并同意：点击右上角“提前结束答题”按钮意味着我将不可恢复地</p>
-        <el-input v-model="input"
-                  placeholder="失去"></el-input>
-        <p class="content">在本场比赛提交答案的权利。</p>
+        <p>本人明确理解并同意：点击右上角“提前结束答题”按钮意味着我将不可恢复地失去在本场比赛提交答案的权利。</p>
       </div>
     </el-card>
     <el-card class="box-card"
@@ -77,22 +73,27 @@ export default {
   },
   methods: {
     advanceSubmit () {
-      let cid = this.$route.params.contestID
-      api.advanceSubmit(cid).then(() => {
-        myMessage.success("交卷成功")
-        this.getAdvanceSubmit()
-      })
+      this.$confirm('确定要提前结束答题吗', '再次提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+        }).then(() => {
+          let cid = this.$route.params.contestID
+          api.advanceSubmit(cid).then(() => {
+            myMessage.success("交卷成功")
+            this.getAdvanceSubmit()
+          })
+        })  
+      
     },
     getAdvanceSubmit () {
       let cid = this.$route.params.contestID
       api.getAdvanceSubmit(cid).then((res) => {
         this.list = res.data.data
-        console.log(this.list);
-        if (this.list.length == 0) {//还没交卷
+        if (this.list.length == 1 && this.list[0].status == 2) {//还没交卷
           this.displayStatus = 0
           return
         }
-        if (this.list[0].status == 3) {//交了
+        if (this.list.length == 1 && this.list[0].status == 3) {//交了
           this.displayStatus = 1
           return
         }
@@ -137,13 +138,14 @@ export default {
   height: 250px;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  font-size: 16px;
 }
 .title {
   font-size: 21px;
   display: flex;
   align-items: center;
 }
-.content,
 .thanks {
   font-size: 16px;
 }

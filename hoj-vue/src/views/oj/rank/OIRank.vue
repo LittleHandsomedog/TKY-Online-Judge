@@ -36,7 +36,7 @@
         <vxe-table-column
           field="username"
           :title="$t('m.User')"
-          min-width="200"
+          width="150"
           show-overflow
           align="left"
         >
@@ -64,7 +64,7 @@
         <vxe-table-column
           field="nickname"
           :title="$t('m.Nickname')"
-          width="160"
+          min-width="270"
         >
           <template v-slot="{ row }">
             <el-tag
@@ -104,7 +104,7 @@
         </vxe-table-column>
         <vxe-table-column
           :title="$t('m.Signature')"
-          min-width="300"
+          min-width="400"
           show-overflow="ellipsis"
           align="left"
         >

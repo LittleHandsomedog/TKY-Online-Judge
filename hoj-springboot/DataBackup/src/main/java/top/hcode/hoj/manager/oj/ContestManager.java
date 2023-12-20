@@ -756,8 +756,11 @@ public class ContestManager {
                 .eq("status",1);
         List<ContestRegister> list = contestRegisterEntityService.list(wrapper);
         if (list.isEmpty()) {
+            //与前端相对于，status 2 代码未交卷
+            list.add(new ContestRegister().setStatus(2));
             return list;
         }
+        //与前端相对于，status 3 代码已交卷
         list.get(0).setStatus(3);
         return list;
     }

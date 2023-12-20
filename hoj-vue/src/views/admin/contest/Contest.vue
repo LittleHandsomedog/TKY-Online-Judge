@@ -328,7 +328,8 @@
           </el-col>
 
           <el-col
-            :md="6"
+            :lg="6"
+            :md="12"
             :xs="24"
           >
             <el-form-item
@@ -352,7 +353,8 @@
             </el-form-item>
           </el-col>
           <el-col
-            :md="6"
+            :lg="6"
+            :md="12"
             :xs="24"
           >
             <el-form-item
@@ -368,7 +370,8 @@
             </el-form-item>
           </el-col>
           <el-col
-            :md="4"
+            :lg="6"
+            :md="8"
             :xs="24"
           >
             <el-form-item
@@ -380,7 +383,8 @@
             </el-form-item>
           </el-col>
           <el-col
-            :md="4"
+            :lg="3"
+            :md="8"
             :xs="24"
           >
             <el-form-item
@@ -393,7 +397,8 @@
           </el-col>
 
           <el-col
-            :md="4"
+            :lg="3"
+            :md="8"
             :xs="24"
           >
             <el-form-item

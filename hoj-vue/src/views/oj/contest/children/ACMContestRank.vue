@@ -138,7 +138,7 @@
           field="username"
           fixed="left"
           v-if="!isMobileView"
-          min-width="300"
+          width="230"
           :title="$t('m.User')"
           header-align="center"
           align="left"
@@ -210,7 +210,7 @@
         <vxe-table-column
           field="username"
           v-else
-          min-width="300"
+          width="230"
           :title="$t('m.User')"
           header-align="center"
           align="left"
@@ -290,7 +290,7 @@
         <vxe-table-column
           field="rating"
           :title="$t('m.AC')"
-          min-width="60"
+          min-width="80"
         >
           <template v-slot="{ row }">
             <span>
@@ -305,7 +305,7 @@
         <vxe-table-column
           field="totalTime"
           :title="$t('m.TotalTime')"
-          min-width="60"
+          min-width="80"
         >
           <template v-slot="{ row }">
             <el-tooltip
@@ -320,7 +320,7 @@
           </template>
         </vxe-table-column>
         <vxe-table-column
-          min-width="74"
+          min-width="104"
           v-for="problem in contestProblems"
           :key="problem.displayId"
           :field="problem.displayId"
