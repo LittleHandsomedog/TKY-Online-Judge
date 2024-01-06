@@ -637,6 +637,13 @@ public class ContestManager {
                     contestRankDto.getKeyword(),
                     isContainsAfterContestJudge);
         }
+        if(!isRoot){
+            List<UserInfoVO> list = resultList.getRecords();
+            for (UserInfoVO obj:list) {
+                obj.setRealname("");
+            }
+            resultList.setRecords(list);
+        }
         return resultList;
     }
 

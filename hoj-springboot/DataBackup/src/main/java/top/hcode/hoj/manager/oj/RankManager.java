@@ -3,6 +3,7 @@ package top.hcode.hoj.manager.oj;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
@@ -52,6 +53,7 @@ public class RankManager {
         if (limit == null || limit < 1) limit = 30;
 
         List<String> uidList = null;
+        // 如果搜索用户不为空
         if (!StringUtils.isEmpty(searchUser)) {
             QueryWrapper<UserInfo> userInfoQueryWrapper = new QueryWrapper<>();
 
@@ -80,6 +82,15 @@ public class RankManager {
             rankList = getOIRankList(limit, currentPage, uidList);
         } else {
             throw new StatusFailException("排行榜类型代码不正确，请使用0(ACM),1(OI)！");
+        }
+        // 是否为超级管理员
+        boolean isRoot = SecurityUtils.getSubject().hasRole("root");
+        if(!isRoot){
+            List<ACMRankVO> list = rankList.getRecords();
+            for (ACMRankVO obj: list ) {
+                obj.setRealname("");
+            }
+            rankList.setRecords(list);
         }
         return rankList;
     }

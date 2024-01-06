@@ -57,6 +57,17 @@
             </el-tag>
           </span>
         </p>
+        <p v-if="profile.realname">
+          <span>
+            <el-tag
+              effect="dark"
+              size="small"
+              :type="nicknameColor(profile.realname)"
+            >
+              {{ profile.realname }}
+            </el-tag>
+          </span>
+        </p>
         <span class="default-info" v-if="profile.school"
           ><i class="fa fa-graduation-cap" aria-hidden="true"></i>
           {{ profile.school }}</span
@@ -346,6 +357,11 @@ export default {
     nicknameColor(nickname) {
       let typeArr = ['', 'success', 'info', 'danger', 'warning'];
       let index = nickname.length % 5;
+      return typeArr[index];
+    },
+    realnameColor(realname) {
+      let typeArr = ['success',''];
+      let index = realname.length % 2;
       return typeArr[index];
     },
     getLevelColor(difficulty) {

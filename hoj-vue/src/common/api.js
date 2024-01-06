@@ -330,6 +330,16 @@ const ojApi = {
     })
   },
 
+  // 更新题目难度
+  updateProblemDifficulty(pid,difficulty){
+    return ajax('/api/update-problem-difficulty','get',{
+      params:{
+        pid,
+        difficulty
+      }
+    })
+  },
+
   // 提交评测模块
   submitCode(data) {
     return ajax('/api/submit-problem-judge', 'post', {

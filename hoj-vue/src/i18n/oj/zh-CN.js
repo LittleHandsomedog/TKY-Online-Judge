@@ -343,6 +343,7 @@ export const m = {
   // /views/oj/rank/ACMRank.vue
   ACM_Ranklist: 'ACM 排行榜',
   User: '用户',
+  RealName: '真实姓名',
   Nickname: '昵称',
   Signature: '个性简介',
   Rating: '通过率',

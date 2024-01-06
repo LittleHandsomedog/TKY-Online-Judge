@@ -173,10 +173,44 @@
                     <template v-if="problemData.problem.difficulty != null">
                       <span>{{ $t('m.Level') }}：<span
                           class="el-tag el-tag--small"
+                          v-if="!isSuperAdmin"
                           :style="getLevelColor(problemData.problem.difficulty)"
                         >{{
                             getLevelName(problemData.problem.difficulty)
-                          }}</span></span>
+                          }}</span>
+                          <span
+                          class="el-tag el-tag--small"
+                          @click="editDifficulty=true"
+                          v-if="!editDifficulty&&isSuperAdmin"
+                          :style="getLevelColor(problemData.problem.difficulty)"
+                        >{{
+                            getLevelName(problemData.problem.difficulty)
+                          }}</span>
+                          <span
+                          class="el-tag el-tag--small"
+                          v-if="editDifficulty"
+                          @click="updateDifficulty(0)"
+                          :style="getLevelColor(0)"
+                        >{{
+                            getLevelName(0)
+                          }}</span>
+                          <span
+                          class="el-tag el-tag--small"
+                          v-if="editDifficulty"
+                          @click="updateDifficulty(1)"
+                          :style="getLevelColor(1)"
+                        >{{
+                            getLevelName(1)
+                          }}</span>
+                          <span
+                          class="el-tag el-tag--small"
+                          v-if="editDifficulty"
+                          @click="updateDifficulty(2)"
+                          :style="getLevelColor(2)"
+                        >{{
+                            getLevelName(2)
+                          }}</span>
+                      </span>
                       <br />
                     </template>
                     <template v-if="problemData.problem.type == 1">
@@ -867,6 +901,7 @@ export default {
   },
   data() {
     return {
+      editDifficulty: false,
       statusVisible: false,
       captchaRequired: false,
       graphVisible: false,
@@ -1753,6 +1788,19 @@ export default {
         fontSize: this.fontSize,
         tabSize: this.tabSize,
       });
+    },
+    updateDifficulty(difficulty){
+      this.editDifficulty = false
+      if(this.problemData.problem.difficulty==difficulty){
+        return
+      }
+      let pid = this.problemID
+      api.updateProblemDifficulty(pid,difficulty).then(
+        (res) =>{
+          myMessage.success(this.$i18n.t("m.Update_Successfully"))
+          this.problemData.problem.difficulty = difficulty
+        }
+      )
     }
   },
   computed: {
@@ -1763,7 +1811,8 @@ export default {
       "contestStatus",
       "isAuthenticated",
       "canSubmit",
-      "websiteConfig"
+      "websiteConfig",
+      'isSuperAdmin'
     ]),
     contest() {
       return this.$store.state.contest.contest;

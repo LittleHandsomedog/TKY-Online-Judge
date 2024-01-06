@@ -144,11 +144,15 @@ public class AccountManager {
         if (userHomeInfo == null) {
             throw new StatusFailException("用户不存在");
         }
+        // 是否为超级管理员
+        boolean isRoot = SecurityUtils.getSubject().hasRole("root");
+        if(!isRoot){
+           userHomeInfo.setRealname("");
+        }
         QueryWrapper<UserAcproblem> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("uid", userHomeInfo.getUid())
                 .select("distinct pid", "submit_id")
                 .orderByAsc("submit_id");
-
         List<UserAcproblem> acProblemList = userAcproblemEntityService.list(queryWrapper);
         List<Long> pidList = acProblemList.stream().map(UserAcproblem::getPid).collect(Collectors.toList());
 

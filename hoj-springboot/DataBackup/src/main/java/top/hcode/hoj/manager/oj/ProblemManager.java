@@ -3,6 +3,7 @@ package top.hcode.hoj.manager.oj;
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.date.DateUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import top.hcode.hoj.dao.contest.ContestEntityService;
 import top.hcode.hoj.dao.judge.JudgeEntityService;
 import top.hcode.hoj.dao.problem.*;
 import top.hcode.hoj.exception.AccessException;
+import top.hcode.hoj.mapper.ProblemMapper;
 import top.hcode.hoj.pojo.dto.LastAcceptedCodeVO;
 import top.hcode.hoj.pojo.dto.PidListDTO;
 import top.hcode.hoj.pojo.entity.contest.Contest;
@@ -77,6 +79,8 @@ public class ProblemManager {
 
     @Autowired
     private ContestManager contestManager;
+    @Autowired
+    private ProblemMapper problemMapper;
 
     /**
      * @MethodName getProblemList
@@ -373,7 +377,7 @@ public class ProblemManager {
                     "    @author: " + judge.getUsername() + "\n" +
                     "    @submitTime: " + DateUtil.format(judge.getSubmitTime(), "yyyy-MM-dd HH:mm:ss") + "\n" +
                     "'''";
-        }else if (judge.getLanguage().toLowerCase().contains("ruby")){
+        } else if (judge.getLanguage().toLowerCase().contains("ruby")) {
             return judge.getCode() + "\n\n" +
                     "=begin\n" +
                     "* @runId: " + judge.getSubmitId() + "\n" +
@@ -400,6 +404,29 @@ public class ProblemManager {
             return contestManager.getContestFullScreenProblemList(cid);
         } else {
             throw new StatusFailException("请求参数错误：tid或cid不能为空");
+        }
+    }
+
+    public void updateProblemDifficulty(String pid,Integer difficulty) throws StatusForbiddenException, StatusFailException {
+        // 是否为超级管理员
+        boolean isRoot = SecurityUtils.getSubject().hasRole("root");
+        // 只有超级管理员和比赛拥有者才能操作
+        if (!isRoot) {
+            throw new StatusForbiddenException("对不起，你无权限操作！");
+        }
+        if (pid == null) {
+            throw new StatusFailException("请求参数错误：pid不能为空");
+        }
+        if (!(difficulty>=0&&difficulty<=2)) {
+            throw new StatusFailException("请求参数错误：difficulty参数无效");
+        }
+        UpdateWrapper<Problem> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.eq("problem_id",pid);
+        Problem problem = new Problem();
+        problem.setDifficulty(difficulty);
+        int isOk = problemMapper.update(problem,updateWrapper);
+        if (isOk==0) {
+            throw new StatusFailException("更新难度失败");
         }
     }
 }

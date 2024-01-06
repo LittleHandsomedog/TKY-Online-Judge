@@ -83,4 +83,16 @@ public class ProblemServiceImpl implements ProblemService {
             return CommonResult.errorResponse(e.getMessage(), ResultStatus.ACCESS_DENIED);
         }
     }
+
+    @Override
+    public CommonResult<Void> updateProblemDifficulty(String pid, Integer difficulty) {
+        try {
+            problemManager.updateProblemDifficulty(pid,difficulty);
+        } catch (StatusForbiddenException e) {
+            return CommonResult.errorResponse(e.getMessage(), ResultStatus.FORBIDDEN);
+        } catch (StatusFailException e) {
+            return CommonResult.errorResponse(e.getMessage());
+        }
+        return CommonResult.successResponse();
+    }
 }

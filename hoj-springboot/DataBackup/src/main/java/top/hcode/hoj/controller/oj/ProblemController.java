@@ -117,4 +117,16 @@ public class ProblemController {
         return problemService.getFullScreenProblemList(tid, cid);
     }
 
+    /**
+     * 修改题目难度
+     *
+     * @param pid
+     * @param difficulty
+     */
+    @RequiresAuthentication
+    @GetMapping("/update-problem-difficulty")
+    public CommonResult<Void> updateProblemDifficulty(@RequestParam(value = "pid", required = true) String pid,
+                                                      @RequestParam(value = "difficulty", required = false)Integer difficulty){
+        return problemService.updateProblemDifficulty(pid,difficulty);
+    }
 }

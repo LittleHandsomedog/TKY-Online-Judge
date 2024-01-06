@@ -32,6 +32,9 @@ public class UserHomeVO {
     @ApiModelProperty(value = "昵称")
     private String nickname;
 
+    @ApiModelProperty(value = "真实昵称")
+    private String realname;
+
     @ApiModelProperty(value = "gender")
     private String gender;
 

@@ -32,4 +32,5 @@ public interface ProblemService {
 
     public CommonResult<List<ProblemFullScreenListVO>> getFullScreenProblemList(Long tid, Long cid);
 
+    public CommonResult<Void> updateProblemDifficulty(String pid, Integer difficulty);
 }

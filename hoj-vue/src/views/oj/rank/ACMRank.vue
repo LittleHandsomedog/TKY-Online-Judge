@@ -62,6 +62,23 @@
           </template>
         </vxe-table-column>
         <vxe-table-column
+          field="realname"
+          :title="$t('m.RealName')"
+          v-if="isSuperAdmin"
+          width="150"
+        >
+          <template v-slot="{ row }">
+            <el-tag
+              effect="plain"
+              size="small"
+              v-if="row.realname"
+              :type="realnameColor(row.realname)"
+            >
+              {{ row.realname }}
+            </el-tag>
+          </template>
+        </vxe-table-column>
+        <vxe-table-column
           field="nickname"
           :title="$t('m.Nickname')"
           min-width="270"
@@ -297,9 +314,14 @@ export default {
       let index = nickname.length % 5;
       return typeArr[index];
     },
+    realnameColor(realname) {
+      let typeArr = ['success',''];
+      let index = realname.length % 2;
+      return typeArr[index];
+    }
   },
   computed: {
-    ...mapGetters(['isAuthenticated', 'userInfo']),
+    ...mapGetters(['isAuthenticated', 'userInfo','isSuperAdmin']),
   },
 };
 </script>
