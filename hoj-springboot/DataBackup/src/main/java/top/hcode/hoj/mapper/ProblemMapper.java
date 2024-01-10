@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+import top.hcode.hoj.pojo.vo.PrevOrNextProblemVO;
 import top.hcode.hoj.pojo.vo.ProblemVO;
 import top.hcode.hoj.pojo.entity.problem.Problem;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -28,4 +29,17 @@ public interface ProblemMapper extends BaseMapper<Problem> {
                                    @Param("tid") List<Long> tid,
                                    @Param("tagListSize") Integer tagListSize,
                                    @Param("oj") String oj);
+    PrevOrNextProblemVO getContestPrevProblem(@Param("pid") String pid,
+                                                    @Param("cid") Long cid);
+    PrevOrNextProblemVO getContestNextProblem(@Param("pid") String pid,
+                                                    @Param("cid") Long cid);
+    PrevOrNextProblemVO getTrainingPrevProblem(@Param("pid") String pid,
+                                                    @Param("tid") Long tid);
+    PrevOrNextProblemVO getTrainingNextProblem(@Param("pid") String pid,
+                                                     @Param("tid") Long tid);
+    PrevOrNextProblemVO getHomePrevProblem(@Param("pid") String pid,
+                                                     @Param("isRemote") Boolean isRemote);
+    PrevOrNextProblemVO getHomeNextProblem(@Param("pid") String pid,
+                                                 @Param("isRemote") Boolean isRemote);
+
 }

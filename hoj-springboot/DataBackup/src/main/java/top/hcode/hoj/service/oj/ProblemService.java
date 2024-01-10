@@ -4,10 +4,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import top.hcode.hoj.common.result.CommonResult;
 import top.hcode.hoj.pojo.dto.LastAcceptedCodeVO;
 import top.hcode.hoj.pojo.dto.PidListDTO;
-import top.hcode.hoj.pojo.vo.ProblemFullScreenListVO;
-import top.hcode.hoj.pojo.vo.ProblemInfoVO;
-import top.hcode.hoj.pojo.vo.ProblemVO;
-import top.hcode.hoj.pojo.vo.RandomProblemVO;
+import top.hcode.hoj.pojo.vo.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -32,5 +29,9 @@ public interface ProblemService {
 
     public CommonResult<List<ProblemFullScreenListVO>> getFullScreenProblemList(Long tid, Long cid);
 
-    public CommonResult<Void> updateProblemDifficulty(String pid, Integer difficulty);
+    public CommonResult<Void> updateProblemDifficulty(String pid, Long cid, Integer difficulty);
+
+    public CommonResult<PrevOrNextProblemVO> getPrevProblem(String pid, Long cid, Long tid, Boolean isRemote);
+
+    public CommonResult<PrevOrNextProblemVO> getNextProblem(String pid, Long cid, Long tid, Boolean isRemote);
 }

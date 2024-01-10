@@ -56,7 +56,75 @@
 
     <!-- 子查询 :为了防止分页总数据数出错-->
     <select id="getProblemTag" resultType="top.hcode.hoj.pojo.entity.problem.Tag">
-        select t.* from tag t,problem_tag pt where t.id = pt.tid and pt.pid = #{pid}
+        select t.*
+        from tag t,
+             problem_tag pt
+        where t.id = pt.tid
+          and pt.pid = #{pid}
     </select>
 
+    <select id="getContestPrevProblem" resultType="top.hcode.hoj.pojo.vo.PrevOrNextProblemVO">
+        select c.display_id as problemId from contest_problem c
+        <where>
+            c.cid = #{cid} and
+            (length(c.display_id) &lt; length(#{pid}) or
+            length(c.display_id) = length(#{pid}) and c.display_id &lt; #{pid})
+        </where>
+        order by length(c.display_id) desc,c.display_id desc LIMIT 1
+    </select>
+
+    <select id="getContestNextProblem" resultType="top.hcode.hoj.pojo.vo.PrevOrNextProblemVO">
+        select c.display_id as problemId from contest_problem c
+        <where>
+            c.cid = #{cid} and
+            (length(c.display_id) &gt; length(#{pid}) or
+            length(c.display_id) = length(#{pid}) and c.display_id &gt; #{pid})
+        </where>
+        order by length(c.display_id) asc,c.display_id asc LIMIT 1
+    </select>
+
+    <select id="getHomePrevProblem" resultType="top.hcode.hoj.pojo.vo.PrevOrNextProblemVO">
+        select p.problem_id as problemId from problem p
+        <where>
+            p.auth = 1 and
+            p.is_remote = #{isRemote} and
+            (length(p.problem_id) &lt; length(#{pid}) or
+            length(p.problem_id) = length(#{pid}) and p.problem_id &lt; #{pid})
+        </where>
+        order by length(p.problem_id) desc,p.problem_id desc LIMIT 1
+    </select>
+
+    <select id="getHomeNextProblem" resultType="top.hcode.hoj.pojo.vo.PrevOrNextProblemVO">
+        select p.problem_id as problemId from problem p
+        <where>
+            p.auth = 1 and
+            p.is_remote = #{isRemote} and
+            (length(p.problem_id) &gt; length(#{pid}) or
+            length(p.problem_id) = length(#{pid}) and p.problem_id &gt; #{pid})
+        </where>
+        order by length(p.problem_id) asc,p.problem_id asc LIMIT 1
+    </select>
+
+    <select id="getTrainingPrevProblem" resultType="top.hcode.hoj.pojo.vo.PrevOrNextProblemVO">
+        SELECT a.display_id as problemId
+        FROM training_problem a
+        WHERE a.tid = #{tid}
+          AND (
+                    a.rank &lt; (SELECT b.rank FROM training_problem b WHERE b.display_id = #{pid}) OR
+                    length(a.display_id) &lt; length(#{pid}) OR
+                    length(a.display_id) = length(#{pid}) AND a.display_id &lt; #{pid} AND
+                    a.rank = (SELECT b.rank FROM training_problem b WHERE b.display_id = #{pid}))
+        order by a.rank desc, length(a.display_id) desc, a.display_id desc LIMIT 1
+    </select>
+    <select id="getTrainingNextProblem" resultType="top.hcode.hoj.pojo.vo.PrevOrNextProblemVO">
+        SELECT a.display_id as problemId
+        FROM training_problem a
+        WHERE a.tid = #{tid}
+          AND (
+                    a.rank > (SELECT b.rank FROM training_problem b WHERE b.display_id = #{pid}) OR
+                    length(a.display_id) > length(#{pid}) OR
+                    length(a.display_id) = length(#{pid}) AND a.display_id > #{pid} AND
+                    a.rank = (SELECT b.rank FROM training_problem b WHERE b.display_id = #{pid}))
+        order by a.rank asc, length(a.display_id) asc, a.display_id asc LIMIT 1
+    </select>
 </mapper>

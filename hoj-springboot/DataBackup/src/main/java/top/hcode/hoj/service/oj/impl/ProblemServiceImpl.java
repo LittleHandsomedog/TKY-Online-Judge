@@ -11,10 +11,7 @@ import top.hcode.hoj.common.result.ResultStatus;
 import top.hcode.hoj.manager.oj.ProblemManager;
 import top.hcode.hoj.pojo.dto.LastAcceptedCodeVO;
 import top.hcode.hoj.pojo.dto.PidListDTO;
-import top.hcode.hoj.pojo.vo.ProblemFullScreenListVO;
-import top.hcode.hoj.pojo.vo.ProblemInfoVO;
-import top.hcode.hoj.pojo.vo.ProblemVO;
-import top.hcode.hoj.pojo.vo.RandomProblemVO;
+import top.hcode.hoj.pojo.vo.*;
 import top.hcode.hoj.service.oj.ProblemService;
 
 import javax.annotation.Resource;
@@ -85,9 +82,9 @@ public class ProblemServiceImpl implements ProblemService {
     }
 
     @Override
-    public CommonResult<Void> updateProblemDifficulty(String pid, Integer difficulty) {
+    public CommonResult<Void> updateProblemDifficulty(String pid, Long cid, Integer difficulty) {
         try {
-            problemManager.updateProblemDifficulty(pid,difficulty);
+            problemManager.updateProblemDifficulty(pid, cid, difficulty);
         } catch (StatusForbiddenException e) {
             return CommonResult.errorResponse(e.getMessage(), ResultStatus.FORBIDDEN);
         } catch (StatusFailException e) {
@@ -95,4 +92,24 @@ public class ProblemServiceImpl implements ProblemService {
         }
         return CommonResult.successResponse();
     }
+
+    @Override
+    public CommonResult<PrevOrNextProblemVO> getPrevProblem(String pid, Long cid, Long tid, Boolean isRemote) {
+        try {
+            return CommonResult.successResponse(problemManager.getPrevProblem(pid, cid, tid, isRemote));
+        } catch (StatusFailException e) {
+            return CommonResult.errorResponse(e.getMessage());
+        }
+    }
+
+    @Override
+    public CommonResult<PrevOrNextProblemVO> getNextProblem(String pid, Long cid, Long tid, Boolean isRemote) {
+        try {
+            return CommonResult.successResponse(problemManager.getNextProblem(pid, cid, tid, isRemote));
+        } catch (StatusFailException e) {
+            return CommonResult.errorResponse(e.getMessage());
+        }
+    }
+
+
 }

@@ -33,8 +33,13 @@
                   slot="header"
                   class="panel-title"
                 >
-                  <span>{{ problemData.problem.title }}</span><br />
-                  <div class="problem-tag">
+                  <span>{{ problemData.problem.title }}
+                    <span class="fl-right" style="line-height:25px">
+                      <el-button size="mini" type="primary" style="margin-right:10px" @click="getPrevProblem">上一题</el-button>
+                      <el-button size="mini" type="primary" style="margin-left:0px" @click="getNextProblem">下一题</el-button>
+                    </span>
+                  </span><br />
+                  <div class="problem-tag" style="line-height:25px">
                     <span v-if="problemData.problem.isFileIO"
                       style="padding-right: 10px">
                       <el-popover
@@ -1795,10 +1800,39 @@ export default {
         return
       }
       let pid = this.problemID
-      api.updateProblemDifficulty(pid,difficulty).then(
+      let cid = this.contestID
+      api.updateProblemDifficulty(pid,cid,difficulty).then(
         (res) =>{
           myMessage.success(this.$i18n.t("m.Update_Successfully"))
           this.problemData.problem.difficulty = difficulty
+        }
+      )
+    },
+    getPrevProblem(){
+      let pid = this.problemID
+      let cid = this.contestID
+      let tid = this.trainingID
+      let isRemote = this.isRemote
+      console.log(pid,cid,tid,isRemote);
+      api.getPrevProblem(pid,cid,tid,isRemote).then(
+        (res) =>{
+          this.$router.push({
+            params: { problemID: res.data.data.problemId },
+          });
+        }
+      )
+    },
+    getNextProblem(){
+      let pid = this.problemID
+      let cid = this.contestID
+      let tid = this.trainingID
+      let isRemote = this.isRemote
+      console.log(pid,cid,tid,isRemote);
+      api.getNextProblem(pid,cid,tid,isRemote).then(
+        (res) =>{
+          this.$router.push({
+            params: { problemID: res.data.data.problemId },
+          });
         }
       )
     }

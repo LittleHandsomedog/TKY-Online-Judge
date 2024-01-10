@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.shiro.SecurityUtils;
+import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
@@ -18,10 +19,12 @@ import top.hcode.hoj.dao.contest.ContestEntityService;
 import top.hcode.hoj.dao.judge.JudgeEntityService;
 import top.hcode.hoj.dao.problem.*;
 import top.hcode.hoj.exception.AccessException;
+import top.hcode.hoj.mapper.ContestProblemMapper;
 import top.hcode.hoj.mapper.ProblemMapper;
 import top.hcode.hoj.pojo.dto.LastAcceptedCodeVO;
 import top.hcode.hoj.pojo.dto.PidListDTO;
 import top.hcode.hoj.pojo.entity.contest.Contest;
+import top.hcode.hoj.pojo.entity.contest.ContestProblem;
 import top.hcode.hoj.pojo.entity.judge.Judge;
 import top.hcode.hoj.pojo.entity.problem.*;
 import top.hcode.hoj.pojo.vo.*;
@@ -79,8 +82,12 @@ public class ProblemManager {
 
     @Autowired
     private ContestManager contestManager;
+
     @Autowired
     private ProblemMapper problemMapper;
+
+    @Autowired
+    private ContestProblemMapper contestProblemMapper;
 
     /**
      * @MethodName getProblemList
@@ -407,7 +414,7 @@ public class ProblemManager {
         }
     }
 
-    public void updateProblemDifficulty(String pid,Integer difficulty) throws StatusForbiddenException, StatusFailException {
+    public void updateProblemDifficulty(String pid, Long cid, Integer difficulty) throws StatusForbiddenException, StatusFailException {
         // 是否为超级管理员
         boolean isRoot = SecurityUtils.getSubject().hasRole("root");
         // 只有超级管理员和比赛拥有者才能操作
@@ -417,16 +424,54 @@ public class ProblemManager {
         if (pid == null) {
             throw new StatusFailException("请求参数错误：pid不能为空");
         }
-        if (!(difficulty>=0&&difficulty<=2)) {
+        if (!(difficulty >= 0 && difficulty <= 2)) {
             throw new StatusFailException("请求参数错误：difficulty参数无效");
         }
         UpdateWrapper<Problem> updateWrapper = new UpdateWrapper<>();
-        updateWrapper.eq("problem_id",pid);
+        if (cid != null && cid != 0) {
+            QueryWrapper<ContestProblem> queryWrapper = new QueryWrapper<>();
+            queryWrapper.eq("display_id",pid);
+            ContestProblem contestProblem = contestProblemMapper.selectOne(queryWrapper);
+            updateWrapper.eq("id",contestProblem.getPid());
+        }else{
+            updateWrapper.eq("problem_id", pid);
+        }
         Problem problem = new Problem();
         problem.setDifficulty(difficulty);
-        int isOk = problemMapper.update(problem,updateWrapper);
-        if (isOk==0) {
+        int isOk = problemMapper.update(problem, updateWrapper);
+        if (isOk == 0) {
             throw new StatusFailException("更新难度失败");
         }
+    }
+
+
+    public PrevOrNextProblemVO getPrevProblem(String pid, Long cid, Long tid, Boolean isRemote) throws StatusFailException {
+        PrevOrNextProblemVO prevOrNextProblemVO;
+        if (cid != null && cid != 0) {
+            prevOrNextProblemVO = problemMapper.getContestPrevProblem(pid, cid);
+        } else if (tid != null) {
+            prevOrNextProblemVO = problemMapper.getTrainingPrevProblem(pid, tid);
+        } else {
+            prevOrNextProblemVO = problemMapper.getHomePrevProblem(pid, isRemote);
+        }
+        if (prevOrNextProblemVO == null) {
+            throw new StatusFailException("获取上一题失败！题目已经到顶了！");
+        }
+        return prevOrNextProblemVO;
+    }
+
+    public PrevOrNextProblemVO getNextProblem(String pid, Long cid, Long tid, Boolean isRemote) throws StatusFailException {
+        PrevOrNextProblemVO prevOrNextProblemVO;
+        if (cid != null && cid != 0) {
+            prevOrNextProblemVO = problemMapper.getContestNextProblem(pid, cid);
+        } else if (tid != null) {
+            prevOrNextProblemVO = problemMapper.getTrainingNextProblem(pid, tid);
+        } else {
+            prevOrNextProblemVO = problemMapper.getHomeNextProblem(pid, isRemote);
+        }
+        if (prevOrNextProblemVO == null) {
+            throw new StatusFailException("获取下一题失败！题目已经到底了！");
+        }
+        return prevOrNextProblemVO;
     }
 }

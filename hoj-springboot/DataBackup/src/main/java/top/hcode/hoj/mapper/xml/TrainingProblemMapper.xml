@@ -48,7 +48,7 @@
         where p.id = tp.pid
           and p.auth = 1
           and tp.tid = #{tid}
-        order by tp.`rank` asc
+        order by tp.`rank` asc,length(p.problem_id) asc,p.problem_id asc
     </select>
 
     <!-- 子查询 :为了防止分页总数据数出错-->

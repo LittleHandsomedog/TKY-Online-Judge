@@ -331,11 +331,36 @@ const ojApi = {
   },
 
   // 更新题目难度
-  updateProblemDifficulty(pid,difficulty){
+  updateProblemDifficulty(pid,cid,difficulty){
     return ajax('/api/update-problem-difficulty','get',{
       params:{
         pid,
+        cid,
         difficulty
+      }
+    })
+  },
+
+  // 获取上一题
+  getPrevProblem(pid,cid,tid,isRemote){
+    return ajax('/api/get-prev-problem','get',{
+      params:{
+        pid,
+        cid,
+        tid,
+        isRemote,
+      }
+    })
+  },
+
+  // 获取下一题
+  getNextProblem(pid,cid,tid,isRemote){
+    return ajax('/api/get-next-problem','get',{
+      params:{
+        pid,
+        cid,
+        tid,
+        isRemote,
       }
     })
   },

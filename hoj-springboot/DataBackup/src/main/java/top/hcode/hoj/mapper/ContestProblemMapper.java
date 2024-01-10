@@ -2,6 +2,7 @@ package top.hcode.hoj.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 import top.hcode.hoj.pojo.entity.contest.ContestProblem;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -26,6 +27,5 @@ public interface ContestProblemMapper extends BaseMapper<ContestProblem> {
                                                  @Param("endTime") Date endTime, @Param("sealTime") Date sealTime,
                                                  @Param("isAdmin") Boolean isAdmin, @Param("adminList") List<String> adminList,
                                                  @Param("isHideContestEndJudge") Boolean isHideContestEndJudge);
-
     List<ProblemFullScreenListVO> getContestFullScreenProblemList(@Param("cid") Long cid);
 }

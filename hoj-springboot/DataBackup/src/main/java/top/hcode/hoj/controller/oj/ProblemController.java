@@ -90,7 +90,7 @@ public class ProblemController {
     }
 
     /**
-     * 获取用户对于该题最近AC的代码
+     * 获取用户对该题最近AC的代码
      *
      * @param pid
      * @param cid
@@ -122,11 +122,39 @@ public class ProblemController {
      *
      * @param pid
      * @param difficulty
+     * @param cid
      */
     @RequiresAuthentication
     @GetMapping("/update-problem-difficulty")
     public CommonResult<Void> updateProblemDifficulty(@RequestParam(value = "pid", required = true) String pid,
+                                                      @RequestParam(value = "cid", required = false) Long cid,
                                                       @RequestParam(value = "difficulty", required = false)Integer difficulty){
-        return problemService.updateProblemDifficulty(pid,difficulty);
+        return problemService.updateProblemDifficulty(pid,cid,difficulty);
+    }
+
+    /**
+     * 获取上一个题或者下一个题
+     *
+     * @param pid  //题目id
+     * @param cid  //比赛id
+     * @param tid  //训练id
+     * @param isRemote //是否为远程题库
+     */
+    @GetMapping("/get-prev-problem")
+    @AnonApi
+    public CommonResult<PrevOrNextProblemVO> getPrevProblem(@RequestParam(value = "pid", required = true) String pid,
+                                                      @RequestParam(value = "cid", required = false) Long cid,
+                                                      @RequestParam(value = "tid", required = false) Long tid,
+                                                      @RequestParam(value = "isRemote", required = false) Boolean isRemote) {
+        return problemService.getPrevProblem(pid,cid,tid,isRemote);
+    }
+
+    @GetMapping("/get-next-problem")
+    @AnonApi
+    public CommonResult<PrevOrNextProblemVO> getNextProblem(@RequestParam(value = "pid", required = true) String pid,
+                                                      @RequestParam(value = "cid", required = false) Long cid,
+                                                      @RequestParam(value = "tid", required = false) Long tid,
+                                                      @RequestParam(value = "isRemote", required = false) Boolean isRemote) {
+        return problemService.getNextProblem(pid,cid,tid,isRemote);
     }
 }

@@ -581,7 +581,7 @@ public class JudgeManager {
 
 
     /**
-     * @MethodName getJudgeCase
+     * @MethodName getJudgeCa   se
      * @Description 获得指定提交id的测试样例结果，暂不支持查看测试数据，只可看测试点结果，时间，空间，或者IO得分
      * @Since 2020/10/29
      */
