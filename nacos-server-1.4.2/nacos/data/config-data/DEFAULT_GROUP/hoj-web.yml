@@ -1,0 +1,15 @@
+baseUrl: http://192.168.65.1
+description: null
+emailBGImg: https://cdn.jsdelivr.net/gh/HimitZH/CDN/images/HCODE.png
+emailHost: smtp.qq.com
+emailPassword: your_email_password
+emailPort: 465
+emailSsl: true
+emailUsername: your_email_username
+name: Hcode Online Judge
+projectName: HOJ
+projectUrl: https://gitee.com/himitzh0730/hoj
+recordName: null
+recordUrl: null
+register: true
+shortName: HOJ

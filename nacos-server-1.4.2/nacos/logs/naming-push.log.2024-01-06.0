@@ -1,0 +1,64 @@
+2024-01-06 00:28:15,352 INFO DEFAULT_GROUP@@hoj-data-backup is changed, add it to push queue.
+
+2024-01-06 00:28:15,354 INFO serviceName: DEFAULT_GROUP@@hoj-data-backup changed, schedule push for: 172.17.65.58:59804, agent: Nacos-Java-Client:v1.4.2, key: 172.17.65.58,59804,48121603428500
+
+2024-01-06 00:28:15,354 INFO send udp packet: 172.17.65.58,59804,48121603428500
+
+2024-01-06 12:13:41,053 INFO DEFAULT_GROUP@@hoj-data-backup is changed, add it to push queue.
+
+2024-01-06 12:54:47,073 INFO DEFAULT_GROUP@@hoj-data-backup is changed, add it to push queue.
+
+2024-01-06 12:54:47,086 INFO serviceName: DEFAULT_GROUP@@hoj-data-backup changed, schedule push for: 172.17.65.218:64117, agent: Nacos-Java-Client:v1.4.2, key: 172.17.65.218,64117,4152310643800
+
+2024-01-06 12:54:47,086 INFO send udp packet: 172.17.65.218,64117,4152310643800
+
+2024-01-06 12:54:57,100 INFO retry to push data, key: 172.17.65.218,64117,4152310643800
+
+2024-01-06 12:54:57,100 INFO send udp packet: 172.17.65.218,64117,4152310643800
+
+2024-01-06 12:55:02,586 INFO DEFAULT_GROUP@@hoj-data-backup is changed, add it to push queue.
+
+2024-01-06 12:55:07,107 INFO retry to push data, key: 172.17.65.218,64117,4152310643800
+
+2024-01-06 12:55:07,107 WARN max re-push times reached, retry times 2, key: 172.17.65.218,64117,4152310643800
+
+2024-01-06 13:03:43,279 INFO DEFAULT_GROUP@@hoj-data-backup is changed, add it to push queue.
+
+2024-01-06 13:03:57,805 INFO DEFAULT_GROUP@@hoj-data-backup is changed, add it to push queue.
+
+2024-01-06 13:08:11,091 INFO DEFAULT_GROUP@@hoj-data-backup is changed, add it to push queue.
+
+2024-01-06 13:08:26,122 INFO DEFAULT_GROUP@@hoj-data-backup is changed, add it to push queue.
+
+2024-01-06 13:08:40,484 INFO DEFAULT_GROUP@@hoj-data-backup is changed, add it to push queue.
+
+2024-01-06 13:08:56,164 INFO DEFAULT_GROUP@@hoj-data-backup is changed, add it to push queue.
+
+2024-01-06 13:09:02,845 INFO DEFAULT_GROUP@@hoj-data-backup is changed, add it to push queue.
+
+2024-01-06 13:11:27,247 INFO DEFAULT_GROUP@@hoj-data-backup is changed, add it to push queue.
+
+2024-01-06 13:11:41,677 INFO DEFAULT_GROUP@@hoj-data-backup is changed, add it to push queue.
+
+2024-01-06 13:23:20,908 INFO DEFAULT_GROUP@@hoj-data-backup is changed, add it to push queue.
+
+2024-01-06 13:23:35,126 INFO DEFAULT_GROUP@@hoj-data-backup is changed, add it to push queue.
+
+2024-01-06 13:24:12,689 INFO DEFAULT_GROUP@@hoj-data-backup is changed, add it to push queue.
+
+2024-01-06 13:24:27,720 INFO DEFAULT_GROUP@@hoj-data-backup is changed, add it to push queue.
+
+2024-01-06 13:25:25,605 INFO DEFAULT_GROUP@@hoj-data-backup is changed, add it to push queue.
+
+2024-01-06 13:27:22,983 INFO DEFAULT_GROUP@@hoj-data-backup is changed, add it to push queue.
+
+2024-01-06 13:28:59,967 INFO DEFAULT_GROUP@@hoj-data-backup is changed, add it to push queue.
+
+2024-01-06 13:29:13,120 INFO DEFAULT_GROUP@@hoj-data-backup is changed, add it to push queue.
+
+2024-01-06 13:30:53,250 INFO DEFAULT_GROUP@@hoj-data-backup is changed, add it to push queue.
+
+2024-01-06 13:31:07,045 INFO DEFAULT_GROUP@@hoj-data-backup is changed, add it to push queue.
+
+2024-01-06 14:12:12,606 INFO DEFAULT_GROUP@@hoj-data-backup is changed, add it to push queue.
+

@@ -1,0 +1,142 @@
+2024-01-05 16:31:57,924 INFO DEFAULT_GROUP@@hoj-data-backup {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.17.65.58:6688:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-05 16:31:57,926 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@hoj-data-backup, ips: 172.17.65.58:6688_true,
+
+2024-01-05 16:33:07,950 INFO {POS} {IP-DISABLED} valid: 172.17.65.58:6688@DEFAULT@DEFAULT_GROUP@@hoj-data-backup, region: unknown, msg: client timeout after 15000, last beat: 1704443572862
+
+2024-01-05 16:33:22,979 INFO DEFAULT_GROUP@@hoj-data-backup {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.17.65.58:6688:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2024-01-05 16:33:22,979 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@hoj-data-backup, ips: 
+
+2024-01-05 16:34:05,485 INFO DEFAULT_GROUP@@hoj-data-backup {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.17.65.58:6688:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-05 16:34:05,485 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@hoj-data-backup, ips: 172.17.65.58:6688_true,
+
+2024-01-05 16:34:33,086 INFO {POS} {IP-DISABLED} valid: 172.17.65.58:6688@DEFAULT@DEFAULT_GROUP@@hoj-data-backup, region: unknown, msg: client timeout after 15000, last beat: 1704443655495
+
+2024-01-05 16:34:48,106 INFO DEFAULT_GROUP@@hoj-data-backup {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.17.65.58:6688:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2024-01-05 16:34:48,106 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@hoj-data-backup, ips: 
+
+2024-01-05 16:35:15,203 INFO DEFAULT_GROUP@@hoj-data-backup {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.17.65.58:6688:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-05 16:35:15,203 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@hoj-data-backup, ips: 172.17.65.58:6688_true,
+
+2024-01-05 16:35:33,180 INFO {POS} {IP-DISABLED} valid: 172.17.65.58:6688@DEFAULT@DEFAULT_GROUP@@hoj-data-backup, region: unknown, msg: client timeout after 15000, last beat: 1704443715203
+
+2024-01-05 16:35:48,202 INFO DEFAULT_GROUP@@hoj-data-backup {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.17.65.58:6688:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2024-01-05 16:35:48,202 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@hoj-data-backup, ips: 
+
+2024-01-05 16:36:36,629 INFO DEFAULT_GROUP@@hoj-data-backup {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.17.65.58:6688:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-05 16:36:36,629 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@hoj-data-backup, ips: 172.17.65.58:6688_true,
+
+2024-01-05 16:37:38,379 INFO {POS} {IP-DISABLED} valid: 172.17.65.58:6688@DEFAULT@DEFAULT_GROUP@@hoj-data-backup, region: unknown, msg: client timeout after 15000, last beat: 1704443842511
+
+2024-01-05 16:37:53,403 INFO DEFAULT_GROUP@@hoj-data-backup {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.17.65.58:6688:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2024-01-05 16:37:53,403 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@hoj-data-backup, ips: 
+
+2024-01-05 16:37:58,268 INFO DEFAULT_GROUP@@hoj-data-backup {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.17.65.58:6688:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-05 16:37:58,268 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@hoj-data-backup, ips: 172.17.65.58:6688_true,
+
+2024-01-05 16:38:13,429 INFO {POS} {IP-DISABLED} valid: 172.17.65.58:6688@DEFAULT@DEFAULT_GROUP@@hoj-data-backup, region: unknown, msg: client timeout after 15000, last beat: 1704443878268
+
+2024-01-05 16:38:28,471 INFO DEFAULT_GROUP@@hoj-data-backup {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.17.65.58:6688:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2024-01-05 16:38:28,471 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@hoj-data-backup, ips: 
+
+2024-01-05 17:11:10,167 INFO DEFAULT_GROUP@@hoj-data-backup {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.17.65.58:6688:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-05 17:11:10,167 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@hoj-data-backup, ips: 172.17.65.58:6688_true,
+
+2024-01-05 17:11:10,367 INFO DEFAULT_GROUP@@hoj-data-backup {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.17.65.58:6688:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-05 17:11:10,367 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@hoj-data-backup, ips: 
+
+2024-01-05 18:08:07,901 INFO DEFAULT_GROUP@@hoj-data-backup {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.17.65.58:6688:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-05 18:08:07,901 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@hoj-data-backup, ips: 172.17.65.58:6688_true,
+
+2024-01-05 18:08:47,981 INFO {POS} {IP-DISABLED} valid: 172.17.65.58:6688@DEFAULT@DEFAULT_GROUP@@hoj-data-backup, region: unknown, msg: client timeout after 15000, last beat: 1704449311149
+
+2024-01-05 18:09:03,017 INFO DEFAULT_GROUP@@hoj-data-backup {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.17.65.58:6688:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2024-01-05 18:09:03,017 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@hoj-data-backup, ips: 
+
+2024-01-05 18:09:53,685 INFO DEFAULT_GROUP@@hoj-data-backup {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.17.65.58:6688:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-05 18:09:53,685 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@hoj-data-backup, ips: 172.17.65.58:6688_true,
+
+2024-01-05 18:10:13,098 INFO {POS} {IP-DISABLED} valid: 172.17.65.58:6688@DEFAULT@DEFAULT_GROUP@@hoj-data-backup, region: unknown, msg: client timeout after 15000, last beat: 1704449393685
+
+2024-01-05 18:10:28,120 INFO DEFAULT_GROUP@@hoj-data-backup {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.17.65.58:6688:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2024-01-05 18:10:28,120 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@hoj-data-backup, ips: 
+
+2024-01-05 18:19:00,283 INFO DEFAULT_GROUP@@hoj-data-backup {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.17.65.58:6688:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-05 18:19:00,283 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@hoj-data-backup, ips: 172.17.65.58:6688_true,
+
+2024-01-05 18:19:00,306 INFO DEFAULT_GROUP@@hoj-data-backup {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.17.65.58:6688:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-05 18:19:00,306 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@hoj-data-backup, ips: 
+
+2024-01-05 18:19:13,362 INFO DEFAULT_GROUP@@hoj-data-backup {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.17.65.58:6688:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-05 18:19:13,362 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@hoj-data-backup, ips: 172.17.65.58:6688_true,
+
+2024-01-05 18:19:50,329 INFO {POS} {IP-DISABLED} valid: 172.17.65.58:6688@DEFAULT@DEFAULT_GROUP@@hoj-data-backup, region: unknown, msg: client timeout after 15000, last beat: 1704449973628
+
+2024-01-05 18:20:00,386 INFO service: DEFAULT_GROUP@@hoj-data-backup {POS} {IP-ENABLED} valid: 172.17.65.58:6688@DEFAULT, region: unknown, msg: client beat ok
+
+2024-01-05 18:20:45,436 INFO {POS} {IP-DISABLED} valid: 172.17.65.58:6688@DEFAULT@DEFAULT_GROUP@@hoj-data-backup, region: unknown, msg: client timeout after 15000, last beat: 1704450029691
+
+2024-01-05 18:20:45,917 INFO service: DEFAULT_GROUP@@hoj-data-backup {POS} {IP-ENABLED} valid: 172.17.65.58:6688@DEFAULT, region: unknown, msg: client beat ok
+
+2024-01-05 21:58:11,846 INFO {POS} {IP-DISABLED} valid: 172.17.65.58:6688@DEFAULT@DEFAULT_GROUP@@hoj-data-backup, region: unknown, msg: client timeout after 15000, last beat: 1704463075720
+
+2024-01-05 21:58:26,886 INFO DEFAULT_GROUP@@hoj-data-backup {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.17.65.58:6688:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2024-01-05 21:58:26,886 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@hoj-data-backup, ips: 
+
+2024-01-05 23:21:44,774 INFO DEFAULT_GROUP@@hoj-data-backup {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.17.65.58:6688:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-05 23:21:44,774 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@hoj-data-backup, ips: 172.17.65.58:6688_true,
+
+2024-01-05 23:38:59,548 INFO DEFAULT_GROUP@@hoj-data-backup {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.17.65.58:6688:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-05 23:38:59,548 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@hoj-data-backup, ips: 
+
+2024-01-05 23:39:15,587 INFO DEFAULT_GROUP@@hoj-data-backup {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.17.65.58:6688:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-05 23:39:15,587 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@hoj-data-backup, ips: 172.17.65.58:6688_true,
+
+2024-01-05 23:41:06,709 INFO {POS} {IP-DISABLED} valid: 172.17.65.58:6688@DEFAULT@DEFAULT_GROUP@@hoj-data-backup, region: unknown, msg: client timeout after 15000, last beat: 1704469250623
+
+2024-01-05 23:41:10,662 INFO service: DEFAULT_GROUP@@hoj-data-backup {POS} {IP-ENABLED} valid: 172.17.65.58:6688@DEFAULT, region: unknown, msg: client beat ok
+
+2024-01-05 23:42:31,835 INFO {POS} {IP-DISABLED} valid: 172.17.65.58:6688@DEFAULT@DEFAULT_GROUP@@hoj-data-backup, region: unknown, msg: client timeout after 15000, last beat: 1704469333414
+
+2024-01-05 23:42:31,920 INFO service: DEFAULT_GROUP@@hoj-data-backup {POS} {IP-ENABLED} valid: 172.17.65.58:6688@DEFAULT, region: unknown, msg: client beat ok
+
+2024-01-05 23:43:31,947 INFO {POS} {IP-DISABLED} valid: 172.17.65.58:6688@DEFAULT@DEFAULT_GROUP@@hoj-data-backup, region: unknown, msg: client timeout after 15000, last beat: 1704469396493
+
+2024-01-05 23:43:32,212 INFO service: DEFAULT_GROUP@@hoj-data-backup {POS} {IP-ENABLED} valid: 172.17.65.58:6688@DEFAULT, region: unknown, msg: client beat ok
+
+2024-01-05 23:43:51,962 INFO {POS} {IP-DISABLED} valid: 172.17.65.58:6688@DEFAULT@DEFAULT_GROUP@@hoj-data-backup, region: unknown, msg: client timeout after 15000, last beat: 1704469412212
+
+2024-01-05 23:43:53,289 INFO service: DEFAULT_GROUP@@hoj-data-backup {POS} {IP-ENABLED} valid: 172.17.65.58:6688@DEFAULT, region: unknown, msg: client beat ok
+
+2024-01-05 23:44:12,008 INFO {POS} {IP-DISABLED} valid: 172.17.65.58:6688@DEFAULT@DEFAULT_GROUP@@hoj-data-backup, region: unknown, msg: client timeout after 15000, last beat: 1704469433289
+
+2024-01-05 23:44:27,031 INFO DEFAULT_GROUP@@hoj-data-backup {SYNC} {IP-DEAD} cluster: DEFAULT, dead ips size: 1, content: [172.17.65.58:6688:unknown:DEFAULT_1.0_false_false_DEFAULT]
+
+2024-01-05 23:44:27,032 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@hoj-data-backup, ips: 
+
+2024-01-05 23:46:57,107 INFO DEFAULT_GROUP@@hoj-data-backup {SYNC} {IP-NEW} cluster: DEFAULT, new ips size: 1, content: [172.17.65.58:6688:unknown:DEFAULT_1.0_true_false_DEFAULT]
+
+2024-01-05 23:46:57,107 INFO [IP-UPDATED] namespace: public, service: DEFAULT_GROUP@@hoj-data-backup, ips: 172.17.65.58:6688_true,
+

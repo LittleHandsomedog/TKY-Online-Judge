@@ -1,0 +1,23 @@
+hoj:
+  jwt:
+    # 加密秘钥
+    secret: hoj-secret-init
+    # token有效时长，1天，单位秒
+    expire: 86400
+    checkRefreshExpire: 43200
+    header: token
+  judge:
+    # 调用判题服务器的token
+    token: 92c70cb8bb864e978a03c3d14714ebc9
+  db:
+    host: 127.0.0.1
+    port: 3306
+    public-host: 127.0.0.1
+    public-port: 3306
+    name: hoj
+    username: root
+    password: hoj123456
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: hoj123456

@@ -1,0 +1,36 @@
+2024-01-07 00:02:20,401 INFO [capacityManagement] start correct usage
+
+2024-01-07 00:02:20,402 INFO [capacityManagement] end correct usage, cost: 0s
+
+2024-01-07 00:02:20,417 WARN clearConfigHistory start
+
+2024-01-07 00:12:20,410 INFO [capacityManagement] start correct usage
+
+2024-01-07 00:12:20,412 INFO [capacityManagement] end correct usage, cost: 0s
+
+2024-01-07 00:12:20,425 WARN clearConfigHistory start
+
+2024-01-07 00:22:20,415 INFO [capacityManagement] start correct usage
+
+2024-01-07 00:22:20,416 INFO [capacityManagement] end correct usage, cost: 0s
+
+2024-01-07 00:22:20,430 WARN clearConfigHistory start
+
+2024-01-07 00:32:20,428 INFO [capacityManagement] start correct usage
+
+2024-01-07 00:32:20,428 INFO [capacityManagement] end correct usage, cost: 0s
+
+2024-01-07 00:32:20,443 WARN clearConfigHistory start
+
+2024-01-07 00:38:07,060 WARN HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@5c3180b7 (The last packet successfully received from the server was 1,780,758 milliseconds ago. The last packet sent successfully to the server was 1,780,758 milliseconds ago. is longer than the server configured value of 'wait_timeout'. You should consider either expiring and/or testing connection validity before use in your application, increasing the server configured values for client timeouts, or using the Connector/J connection property 'autoReconnect=true' to avoid this problem.). Possibly consider using a shorter maxLifetime value.
+
+2024-01-07 00:42:20,437 INFO [capacityManagement] start correct usage
+
+2024-01-07 00:42:20,453 WARN clearConfigHistory start
+
+2024-01-07 00:42:50,468 ERROR clearConfigHistory error : org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 30014ms.
+
+2024-01-07 00:52:50,477 WARN clearConfigHistory start
+
+2024-01-07 00:53:20,481 ERROR clearConfigHistory error : org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 30003ms.
+

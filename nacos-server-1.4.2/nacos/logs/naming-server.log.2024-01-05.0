@@ -1,0 +1,138 @@
+2024-01-05 16:28:26,205 INFO GlobalConfig{taskDispatchPeriod=2000, batchSyncKeyCount=1000, syncRetryDelay=5000, dataWarmup=false, expireInstance=true, loadDataRetryDelayMillis=30000}
+
+2024-01-05 16:28:26,622 INFO open empty service auto clean job, initialDelay : 50000 ms, period : 30000 ms
+
+2024-01-05 16:28:26,622 INFO listen for service meta change
+
+2024-01-05 16:28:31,192 INFO [NACOS-DISTRO] healthy server list changed, old: [172.17.65.58:8848], new: [172.17.65.58:8848]
+
+2024-01-05 16:31:57,817 INFO creating empty service public:DEFAULT_GROUP@@hoj-data-backup
+
+2024-01-05 16:31:57,915 INFO [NEW-SERVICE] {"name":"DEFAULT_GROUP@@hoj-data-backup","protectThreshold":0.0,"groupName":"DEFAULT_GROUP","metadata":{},"finalizeCount":0,"owners":[],"resetWeight":false,"enabled":true,"selector":{"type":"none"},"namespaceId":"public","ipDeleteTimeout":30000,"lastModifiedMillis":1704443517819,"checksum":"694dab216af8f6d1c475171604246cfc","clusterMap":{},"empty":true}
+
+2024-01-05 16:31:57,919 WARN cluster: DEFAULT not found, ip: {"instanceId":"172.17.65.58#6688#DEFAULT#DEFAULT_GROUP@@hoj-data-backup","ip":"172.17.65.58","port":6688,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@hoj-data-backup","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1704443517815,"marked":false,"app":"unknown","instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}, will create new cluster with default configuration.
+
+2024-01-05 16:31:57,923 INFO [NACOS-RAFT] datum is changed, key: com.alibaba.nacos.naming.iplist.ephemeral.public##DEFAULT_GROUP@@hoj-data-backup, value: {"instanceList":[{"instanceId":"172.17.65.58#6688#DEFAULT#DEFAULT_GROUP@@hoj-data-backup","ip":"172.17.65.58","port":6688,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@hoj-data-backup","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1704443517815,"marked":false,"app":"unknown","instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}]}
+
+2024-01-05 16:33:22,974 INFO [AUTO-DELETE-IP] service: DEFAULT_GROUP@@hoj-data-backup, ip: {"instanceId":"172.17.65.58#6688#DEFAULT#DEFAULT_GROUP@@hoj-data-backup","ip":"172.17.65.58","port":6688,"weight":1.0,"healthy":false,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@hoj-data-backup","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1704443572862,"marked":false,"app":"unknown","instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}
+
+2024-01-05 16:33:22,979 INFO [NACOS-RAFT] datum is changed, key: com.alibaba.nacos.naming.iplist.ephemeral.public##DEFAULT_GROUP@@hoj-data-backup, value: {"instanceList":[]}
+
+2024-01-05 16:34:05,485 INFO [NACOS-RAFT] datum is changed, key: com.alibaba.nacos.naming.iplist.ephemeral.public##DEFAULT_GROUP@@hoj-data-backup, value: {"instanceList":[{"instanceId":"172.17.65.58#6688#DEFAULT#DEFAULT_GROUP@@hoj-data-backup","ip":"172.17.65.58","port":6688,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@hoj-data-backup","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1704443645484,"marked":false,"app":"unknown","instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}]}
+
+2024-01-05 16:34:48,103 INFO [AUTO-DELETE-IP] service: DEFAULT_GROUP@@hoj-data-backup, ip: {"instanceId":"172.17.65.58#6688#DEFAULT#DEFAULT_GROUP@@hoj-data-backup","ip":"172.17.65.58","port":6688,"weight":1.0,"healthy":false,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@hoj-data-backup","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1704443655495,"marked":false,"app":"unknown","instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}
+
+2024-01-05 16:34:48,106 INFO [NACOS-RAFT] datum is changed, key: com.alibaba.nacos.naming.iplist.ephemeral.public##DEFAULT_GROUP@@hoj-data-backup, value: {"instanceList":[]}
+
+2024-01-05 16:35:15,203 INFO [NACOS-RAFT] datum is changed, key: com.alibaba.nacos.naming.iplist.ephemeral.public##DEFAULT_GROUP@@hoj-data-backup, value: {"instanceList":[{"instanceId":"172.17.65.58#6688#DEFAULT#DEFAULT_GROUP@@hoj-data-backup","ip":"172.17.65.58","port":6688,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@hoj-data-backup","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1704443715203,"marked":false,"app":"unknown","instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}]}
+
+2024-01-05 16:35:48,199 INFO [AUTO-DELETE-IP] service: DEFAULT_GROUP@@hoj-data-backup, ip: {"instanceId":"172.17.65.58#6688#DEFAULT#DEFAULT_GROUP@@hoj-data-backup","ip":"172.17.65.58","port":6688,"weight":1.0,"healthy":false,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@hoj-data-backup","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1704443715203,"marked":false,"app":"unknown","instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}
+
+2024-01-05 16:35:48,202 INFO [NACOS-RAFT] datum is changed, key: com.alibaba.nacos.naming.iplist.ephemeral.public##DEFAULT_GROUP@@hoj-data-backup, value: {"instanceList":[]}
+
+2024-01-05 16:36:36,618 WARN [CLIENT-BEAT] The instance has been removed for health mechanism, perform data compensation operations, beat: {"load":0.0,"cpu":0.0,"rt":0.0,"qps":0.0,"mem":0.0,"port":6688,"ip":"172.17.65.58","serviceName":"DEFAULT_GROUP@@hoj-data-backup","cluster":"DEFAULT","weight":1.0,"ephemeral":true,"metadata":{"preserved.register.source":"SPRING_CLOUD"}}, serviceName: DEFAULT_GROUP@@hoj-data-backup
+
+2024-01-05 16:36:36,629 INFO [NACOS-RAFT] datum is changed, key: com.alibaba.nacos.naming.iplist.ephemeral.public##DEFAULT_GROUP@@hoj-data-backup, value: {"instanceList":[{"instanceId":"172.17.65.58#6688#DEFAULT#DEFAULT_GROUP@@hoj-data-backup","ip":"172.17.65.58","port":6688,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@hoj-data-backup","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1704443796629,"marked":false,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}]}
+
+2024-01-05 16:37:53,401 INFO [AUTO-DELETE-IP] service: DEFAULT_GROUP@@hoj-data-backup, ip: {"instanceId":"172.17.65.58#6688#DEFAULT#DEFAULT_GROUP@@hoj-data-backup","ip":"172.17.65.58","port":6688,"weight":1.0,"healthy":false,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@hoj-data-backup","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1704443842511,"marked":false,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}
+
+2024-01-05 16:37:53,403 INFO [NACOS-RAFT] datum is changed, key: com.alibaba.nacos.naming.iplist.ephemeral.public##DEFAULT_GROUP@@hoj-data-backup, value: {"instanceList":[]}
+
+2024-01-05 16:37:58,268 INFO [NACOS-RAFT] datum is changed, key: com.alibaba.nacos.naming.iplist.ephemeral.public##DEFAULT_GROUP@@hoj-data-backup, value: {"instanceList":[{"instanceId":"172.17.65.58#6688#DEFAULT#DEFAULT_GROUP@@hoj-data-backup","ip":"172.17.65.58","port":6688,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@hoj-data-backup","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1704443878268,"marked":false,"app":"unknown","instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}]}
+
+2024-01-05 16:38:28,467 INFO [AUTO-DELETE-IP] service: DEFAULT_GROUP@@hoj-data-backup, ip: {"instanceId":"172.17.65.58#6688#DEFAULT#DEFAULT_GROUP@@hoj-data-backup","ip":"172.17.65.58","port":6688,"weight":1.0,"healthy":false,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@hoj-data-backup","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1704443878268,"marked":false,"app":"unknown","instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}
+
+2024-01-05 16:38:28,471 INFO [NACOS-RAFT] datum is changed, key: com.alibaba.nacos.naming.iplist.ephemeral.public##DEFAULT_GROUP@@hoj-data-backup, value: {"instanceList":[]}
+
+2024-01-05 16:40:46,624 WARN namespace : public, [DEFAULT_GROUP@@hoj-data-backup] services are automatically cleaned
+
+2024-01-05 16:40:46,630 INFO [DEAD-SERVICE] {"name":"DEFAULT_GROUP@@hoj-data-backup","protectThreshold":0.0,"groupName":"DEFAULT_GROUP","metadata":{},"finalizeCount":5,"owners":[],"resetWeight":false,"enabled":true,"selector":{"type":"none"},"namespaceId":"public","ipDeleteTimeout":30000,"lastModifiedMillis":1704443908471,"checksum":"c2f6ccf31a33d98377b40659c2f1c86f","clusterMap":{"DEFAULT":{"serviceName":"DEFAULT_GROUP@@hoj-data-backup","name":"DEFAULT","healthChecker":{"type":"TCP"},"defaultPort":80,"defaultCheckPort":80,"useIPPort4Check":true,"metadata":{},"sitegroup":"","defCkport":80,"empty":true,"defIPPort":80}},"empty":true}
+
+2024-01-05 17:11:10,165 WARN [CLIENT-BEAT] The instance has been removed for health mechanism, perform data compensation operations, beat: {"load":0.0,"cpu":0.0,"rt":0.0,"qps":0.0,"mem":0.0,"port":6688,"ip":"172.17.65.58","serviceName":"DEFAULT_GROUP@@hoj-data-backup","cluster":"DEFAULT","weight":1.0,"ephemeral":true,"metadata":{"preserved.register.source":"SPRING_CLOUD"}}, serviceName: DEFAULT_GROUP@@hoj-data-backup
+
+2024-01-05 17:11:10,165 INFO creating empty service public:DEFAULT_GROUP@@hoj-data-backup
+
+2024-01-05 17:11:10,166 INFO [NEW-SERVICE] {"name":"DEFAULT_GROUP@@hoj-data-backup","protectThreshold":0.0,"groupName":"DEFAULT_GROUP","metadata":{},"finalizeCount":0,"owners":[],"resetWeight":false,"enabled":true,"selector":{"type":"none"},"namespaceId":"public","ipDeleteTimeout":30000,"lastModifiedMillis":1704445870165,"checksum":"694dab216af8f6d1c475171604246cfc","clusterMap":{},"empty":true}
+
+2024-01-05 17:11:10,167 WARN cluster: DEFAULT not found, ip: {"ip":"172.17.65.58","port":6688,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@hoj-data-backup","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1704445870165,"marked":false,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}, will create new cluster with default configuration.
+
+2024-01-05 17:11:10,167 INFO [NACOS-RAFT] datum is changed, key: com.alibaba.nacos.naming.iplist.ephemeral.public##DEFAULT_GROUP@@hoj-data-backup, value: {"instanceList":[{"instanceId":"172.17.65.58#6688#DEFAULT#DEFAULT_GROUP@@hoj-data-backup","ip":"172.17.65.58","port":6688,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@hoj-data-backup","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1704445870165,"marked":false,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}]}
+
+2024-01-05 17:11:10,366 INFO [NACOS-RAFT] datum is changed, key: com.alibaba.nacos.naming.iplist.ephemeral.public##DEFAULT_GROUP@@hoj-data-backup, value: {"instanceList":[]}
+
+2024-01-05 17:13:16,633 WARN namespace : public, [DEFAULT_GROUP@@hoj-data-backup] services are automatically cleaned
+
+2024-01-05 17:13:16,635 INFO [DEAD-SERVICE] {"name":"DEFAULT_GROUP@@hoj-data-backup","protectThreshold":0.0,"groupName":"DEFAULT_GROUP","metadata":{},"finalizeCount":5,"owners":[],"resetWeight":false,"enabled":true,"selector":{"type":"none"},"namespaceId":"public","ipDeleteTimeout":30000,"lastModifiedMillis":1704445870367,"checksum":"c2f6ccf31a33d98377b40659c2f1c86f","clusterMap":{"DEFAULT":{"serviceName":"DEFAULT_GROUP@@hoj-data-backup","name":"DEFAULT","healthChecker":{"type":"TCP"},"defaultPort":80,"defaultCheckPort":80,"useIPPort4Check":true,"metadata":{},"sitegroup":"","defCkport":80,"empty":true,"defIPPort":80}},"empty":true}
+
+2024-01-05 18:08:07,900 INFO creating empty service public:DEFAULT_GROUP@@hoj-data-backup
+
+2024-01-05 18:08:07,901 INFO [NEW-SERVICE] {"name":"DEFAULT_GROUP@@hoj-data-backup","protectThreshold":0.0,"groupName":"DEFAULT_GROUP","metadata":{},"finalizeCount":0,"owners":[],"resetWeight":false,"enabled":true,"selector":{"type":"none"},"namespaceId":"public","ipDeleteTimeout":30000,"lastModifiedMillis":1704449287900,"checksum":"694dab216af8f6d1c475171604246cfc","clusterMap":{},"empty":true}
+
+2024-01-05 18:08:07,901 WARN cluster: DEFAULT not found, ip: {"instanceId":"172.17.65.58#6688#DEFAULT#DEFAULT_GROUP@@hoj-data-backup","ip":"172.17.65.58","port":6688,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@hoj-data-backup","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1704449287900,"marked":false,"app":"unknown","instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}, will create new cluster with default configuration.
+
+2024-01-05 18:08:07,901 INFO [NACOS-RAFT] datum is changed, key: com.alibaba.nacos.naming.iplist.ephemeral.public##DEFAULT_GROUP@@hoj-data-backup, value: {"instanceList":[{"instanceId":"172.17.65.58#6688#DEFAULT#DEFAULT_GROUP@@hoj-data-backup","ip":"172.17.65.58","port":6688,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@hoj-data-backup","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1704449287900,"marked":false,"app":"unknown","instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}]}
+
+2024-01-05 18:09:03,014 INFO [AUTO-DELETE-IP] service: DEFAULT_GROUP@@hoj-data-backup, ip: {"instanceId":"172.17.65.58#6688#DEFAULT#DEFAULT_GROUP@@hoj-data-backup","ip":"172.17.65.58","port":6688,"weight":1.0,"healthy":false,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@hoj-data-backup","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1704449311149,"marked":false,"app":"unknown","instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}
+
+2024-01-05 18:09:03,017 INFO [NACOS-RAFT] datum is changed, key: com.alibaba.nacos.naming.iplist.ephemeral.public##DEFAULT_GROUP@@hoj-data-backup, value: {"instanceList":[]}
+
+2024-01-05 18:09:53,685 INFO [NACOS-RAFT] datum is changed, key: com.alibaba.nacos.naming.iplist.ephemeral.public##DEFAULT_GROUP@@hoj-data-backup, value: {"instanceList":[{"instanceId":"172.17.65.58#6688#DEFAULT#DEFAULT_GROUP@@hoj-data-backup","ip":"172.17.65.58","port":6688,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@hoj-data-backup","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1704449393685,"marked":false,"app":"unknown","instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}]}
+
+2024-01-05 18:10:28,118 INFO [AUTO-DELETE-IP] service: DEFAULT_GROUP@@hoj-data-backup, ip: {"instanceId":"172.17.65.58#6688#DEFAULT#DEFAULT_GROUP@@hoj-data-backup","ip":"172.17.65.58","port":6688,"weight":1.0,"healthy":false,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@hoj-data-backup","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1704449393685,"marked":false,"app":"unknown","instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}
+
+2024-01-05 18:10:28,120 INFO [NACOS-RAFT] datum is changed, key: com.alibaba.nacos.naming.iplist.ephemeral.public##DEFAULT_GROUP@@hoj-data-backup, value: {"instanceList":[]}
+
+2024-01-05 18:12:46,631 WARN namespace : public, [DEFAULT_GROUP@@hoj-data-backup] services are automatically cleaned
+
+2024-01-05 18:12:46,632 INFO [DEAD-SERVICE] {"name":"DEFAULT_GROUP@@hoj-data-backup","protectThreshold":0.0,"groupName":"DEFAULT_GROUP","metadata":{},"finalizeCount":5,"owners":[],"resetWeight":false,"enabled":true,"selector":{"type":"none"},"namespaceId":"public","ipDeleteTimeout":30000,"lastModifiedMillis":1704449428120,"checksum":"c2f6ccf31a33d98377b40659c2f1c86f","clusterMap":{"DEFAULT":{"serviceName":"DEFAULT_GROUP@@hoj-data-backup","name":"DEFAULT","healthChecker":{"type":"TCP"},"defaultPort":80,"defaultCheckPort":80,"useIPPort4Check":true,"metadata":{},"sitegroup":"","defCkport":80,"empty":true,"defIPPort":80}},"empty":true}
+
+2024-01-05 18:19:00,282 WARN [CLIENT-BEAT] The instance has been removed for health mechanism, perform data compensation operations, beat: {"load":0.0,"cpu":0.0,"rt":0.0,"qps":0.0,"mem":0.0,"port":6688,"ip":"172.17.65.58","serviceName":"DEFAULT_GROUP@@hoj-data-backup","cluster":"DEFAULT","weight":1.0,"ephemeral":true,"metadata":{"preserved.register.source":"SPRING_CLOUD"}}, serviceName: DEFAULT_GROUP@@hoj-data-backup
+
+2024-01-05 18:19:00,282 INFO creating empty service public:DEFAULT_GROUP@@hoj-data-backup
+
+2024-01-05 18:19:00,283 INFO [NEW-SERVICE] {"name":"DEFAULT_GROUP@@hoj-data-backup","protectThreshold":0.0,"groupName":"DEFAULT_GROUP","metadata":{},"finalizeCount":0,"owners":[],"resetWeight":false,"enabled":true,"selector":{"type":"none"},"namespaceId":"public","ipDeleteTimeout":30000,"lastModifiedMillis":1704449940282,"checksum":"694dab216af8f6d1c475171604246cfc","clusterMap":{},"empty":true}
+
+2024-01-05 18:19:00,283 WARN cluster: DEFAULT not found, ip: {"ip":"172.17.65.58","port":6688,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@hoj-data-backup","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1704449940282,"marked":false,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}, will create new cluster with default configuration.
+
+2024-01-05 18:19:00,283 INFO [NACOS-RAFT] datum is changed, key: com.alibaba.nacos.naming.iplist.ephemeral.public##DEFAULT_GROUP@@hoj-data-backup, value: {"instanceList":[{"instanceId":"172.17.65.58#6688#DEFAULT#DEFAULT_GROUP@@hoj-data-backup","ip":"172.17.65.58","port":6688,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@hoj-data-backup","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1704449940282,"marked":false,"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}]}
+
+2024-01-05 18:19:00,306 INFO [NACOS-RAFT] datum is changed, key: com.alibaba.nacos.naming.iplist.ephemeral.public##DEFAULT_GROUP@@hoj-data-backup, value: {"instanceList":[]}
+
+2024-01-05 18:19:13,362 INFO [NACOS-RAFT] datum is changed, key: com.alibaba.nacos.naming.iplist.ephemeral.public##DEFAULT_GROUP@@hoj-data-backup, value: {"instanceList":[{"instanceId":"172.17.65.58#6688#DEFAULT#DEFAULT_GROUP@@hoj-data-backup","ip":"172.17.65.58","port":6688,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@hoj-data-backup","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1704449953362,"marked":false,"app":"unknown","instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}]}
+
+2024-01-05 21:58:26,879 INFO [AUTO-DELETE-IP] service: DEFAULT_GROUP@@hoj-data-backup, ip: {"instanceId":"172.17.65.58#6688#DEFAULT#DEFAULT_GROUP@@hoj-data-backup","ip":"172.17.65.58","port":6688,"weight":1.0,"healthy":false,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@hoj-data-backup","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1704463075720,"marked":false,"app":"unknown","instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}
+
+2024-01-05 21:58:26,885 INFO [NACOS-RAFT] datum is changed, key: com.alibaba.nacos.naming.iplist.ephemeral.public##DEFAULT_GROUP@@hoj-data-backup, value: {"instanceList":[]}
+
+2024-01-05 22:00:46,635 WARN namespace : public, [DEFAULT_GROUP@@hoj-data-backup] services are automatically cleaned
+
+2024-01-05 22:00:46,640 INFO [DEAD-SERVICE] {"name":"DEFAULT_GROUP@@hoj-data-backup","protectThreshold":0.0,"groupName":"DEFAULT_GROUP","metadata":{},"finalizeCount":5,"owners":[],"resetWeight":false,"enabled":true,"selector":{"type":"none"},"namespaceId":"public","ipDeleteTimeout":30000,"lastModifiedMillis":1704463106886,"checksum":"c2f6ccf31a33d98377b40659c2f1c86f","clusterMap":{"DEFAULT":{"serviceName":"DEFAULT_GROUP@@hoj-data-backup","name":"DEFAULT","healthChecker":{"type":"TCP"},"defaultPort":80,"defaultCheckPort":80,"useIPPort4Check":true,"metadata":{},"sitegroup":"","defCkport":80,"empty":true,"defIPPort":80}},"empty":true}
+
+2024-01-05 23:21:44,767 INFO creating empty service public:DEFAULT_GROUP@@hoj-data-backup
+
+2024-01-05 23:21:44,772 INFO [NEW-SERVICE] {"name":"DEFAULT_GROUP@@hoj-data-backup","protectThreshold":0.0,"groupName":"DEFAULT_GROUP","metadata":{},"finalizeCount":0,"owners":[],"resetWeight":false,"enabled":true,"selector":{"type":"none"},"namespaceId":"public","ipDeleteTimeout":30000,"lastModifiedMillis":1704468104768,"checksum":"694dab216af8f6d1c475171604246cfc","clusterMap":{},"empty":true}
+
+2024-01-05 23:21:44,773 WARN cluster: DEFAULT not found, ip: {"instanceId":"172.17.65.58#6688#DEFAULT#DEFAULT_GROUP@@hoj-data-backup","ip":"172.17.65.58","port":6688,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@hoj-data-backup","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1704468104766,"marked":false,"app":"unknown","instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}, will create new cluster with default configuration.
+
+2024-01-05 23:21:44,773 INFO [NACOS-RAFT] datum is changed, key: com.alibaba.nacos.naming.iplist.ephemeral.public##DEFAULT_GROUP@@hoj-data-backup, value: {"instanceList":[{"instanceId":"172.17.65.58#6688#DEFAULT#DEFAULT_GROUP@@hoj-data-backup","ip":"172.17.65.58","port":6688,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@hoj-data-backup","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1704468104766,"marked":false,"app":"unknown","instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}]}
+
+2024-01-05 23:38:59,548 INFO [NACOS-RAFT] datum is changed, key: com.alibaba.nacos.naming.iplist.ephemeral.public##DEFAULT_GROUP@@hoj-data-backup, value: {"instanceList":[]}
+
+2024-01-05 23:39:15,587 INFO [NACOS-RAFT] datum is changed, key: com.alibaba.nacos.naming.iplist.ephemeral.public##DEFAULT_GROUP@@hoj-data-backup, value: {"instanceList":[{"instanceId":"172.17.65.58#6688#DEFAULT#DEFAULT_GROUP@@hoj-data-backup","ip":"172.17.65.58","port":6688,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@hoj-data-backup","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1704469155587,"marked":false,"app":"unknown","instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}]}
+
+2024-01-05 23:44:27,029 INFO [AUTO-DELETE-IP] service: DEFAULT_GROUP@@hoj-data-backup, ip: {"instanceId":"172.17.65.58#6688#DEFAULT#DEFAULT_GROUP@@hoj-data-backup","ip":"172.17.65.58","port":6688,"weight":1.0,"healthy":false,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@hoj-data-backup","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1704469433289,"marked":false,"app":"unknown","instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}
+
+2024-01-05 23:44:27,031 INFO [NACOS-RAFT] datum is changed, key: com.alibaba.nacos.naming.iplist.ephemeral.public##DEFAULT_GROUP@@hoj-data-backup, value: {"instanceList":[]}
+
+2024-01-05 23:46:46,628 WARN namespace : public, [DEFAULT_GROUP@@hoj-data-backup] services are automatically cleaned
+
+2024-01-05 23:46:46,629 INFO [DEAD-SERVICE] {"name":"DEFAULT_GROUP@@hoj-data-backup","protectThreshold":0.0,"groupName":"DEFAULT_GROUP","metadata":{},"finalizeCount":5,"owners":[],"resetWeight":false,"enabled":true,"selector":{"type":"none"},"namespaceId":"public","ipDeleteTimeout":30000,"lastModifiedMillis":1704469467031,"checksum":"c2f6ccf31a33d98377b40659c2f1c86f","clusterMap":{"DEFAULT":{"serviceName":"DEFAULT_GROUP@@hoj-data-backup","name":"DEFAULT","healthChecker":{"type":"TCP"},"defaultPort":80,"defaultCheckPort":80,"useIPPort4Check":true,"metadata":{},"sitegroup":"","defCkport":80,"empty":true,"defIPPort":80}},"empty":true}
+
+2024-01-05 23:46:57,106 INFO creating empty service public:DEFAULT_GROUP@@hoj-data-backup
+
+2024-01-05 23:46:57,107 INFO [NEW-SERVICE] {"name":"DEFAULT_GROUP@@hoj-data-backup","protectThreshold":0.0,"groupName":"DEFAULT_GROUP","metadata":{},"finalizeCount":0,"owners":[],"resetWeight":false,"enabled":true,"selector":{"type":"none"},"namespaceId":"public","ipDeleteTimeout":30000,"lastModifiedMillis":1704469617106,"checksum":"694dab216af8f6d1c475171604246cfc","clusterMap":{},"empty":true}
+
+2024-01-05 23:46:57,107 WARN cluster: DEFAULT not found, ip: {"instanceId":"172.17.65.58#6688#DEFAULT#DEFAULT_GROUP@@hoj-data-backup","ip":"172.17.65.58","port":6688,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@hoj-data-backup","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1704469617106,"marked":false,"app":"unknown","instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}, will create new cluster with default configuration.
+
+2024-01-05 23:46:57,107 INFO [NACOS-RAFT] datum is changed, key: com.alibaba.nacos.naming.iplist.ephemeral.public##DEFAULT_GROUP@@hoj-data-backup, value: {"instanceList":[{"instanceId":"172.17.65.58#6688#DEFAULT#DEFAULT_GROUP@@hoj-data-backup","ip":"172.17.65.58","port":6688,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@hoj-data-backup","metadata":{"preserved.register.source":"SPRING_CLOUD"},"lastBeat":1704469617106,"marked":false,"app":"unknown","instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}]}
+

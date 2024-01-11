@@ -70,7 +70,7 @@ module.exports={
     proxy: {
       '/api': {                                //   以'/api'开头的请求会被代理进行转发 http://localhost:6688  http://172.30.8.58:6688
         target: 'http://172.30.8.58:6688',       //   要发向的后台服务器地址  如果后台服务跑在后台开发人员的机器上，就写成 `http://ip:port` 如 `http:192.168.12.213:8081`   ip为后台服务器的ip
-        //target: 'http://localhost:6688',
+        // target: 'http://localhost:6688',
         changeOrigin: true 
       }
     },
