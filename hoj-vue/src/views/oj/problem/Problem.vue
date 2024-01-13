@@ -1813,7 +1813,6 @@ export default {
       let cid = this.contestID
       let tid = this.trainingID
       let isRemote = this.isRemote
-      console.log(pid,cid,tid,isRemote);
       api.getPrevProblem(pid,cid,tid,isRemote).then(
         (res) =>{
           this.$router.push({
@@ -1828,7 +1827,6 @@ export default {
       let cid = this.contestID
       let tid = this.trainingID
       let isRemote = this.isRemote
-      console.log(pid,cid,tid,isRemote);
       api.getNextProblem(pid,cid,tid,isRemote).then(
         (res) =>{
           this.$router.push({
