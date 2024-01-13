@@ -664,14 +664,14 @@ const ojApi = {
     })
   },
 
-  //提前交卷
+  // 提前交卷
   advanceSubmit(cid){
     return ajax('/api/advance-submit','get',{
       params:{cid}
     })
   },
 
-  //提前交卷
+  // 获取提前交卷列表
   getAdvanceSubmit(cid){
     return ajax('/api/get-advance-submit','get',{
       params:{cid}

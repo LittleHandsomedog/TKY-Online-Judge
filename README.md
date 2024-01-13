@@ -5,7 +5,7 @@
 ## 一、总概
 
 - 基于HOJ二次开发的平台
-- 在HOJ的基础功能上新增：IP限制功能，比赛成员提前交卷功能
+- 在HOJ的基础功能上新增：IP限制功能，比赛成员提前交卷，题目中切换上一题下一题功能
 
 |               在线Demo               |                   在线文档                   |             Github&Gitee仓库地址             |           QQ群           |
 | :--------------------------------: | :--------------------------------------: | :--------------------------------------: | :---------------------: |
@@ -26,17 +26,12 @@
 
 部署仓库：https://gitee.com/himitzh0730/hoj-deploy
 
-## 三、原版HOJ更新
+## 三、TKYOJ部署
 
-请在docker-compose.yml当前文件夹下执行`docker-compose pull`拉取最新镜像，然后重新`docker-compose up -d`即可。
+部署仓库：
 
 ## 四、如何添加二次开发的功能
 
-- 首先需要根据上方的文档部署原版HOJ
-- 进入该文档[自定义前端 | HOJ (hdoi.cn)](https://docs.hdoi.cn/use/update-fe/#一、完全自定义前端)
 - 前端文件为hoj-vue，后端文件为hoj-springboot
-- 如果需要本地启动后端，请前往教程学习[onlineJudge搭建教程，HOJ搭建教程，HOJ二开教程 - longkui - 博客园 (cnblogs.com)](https://www.cnblogs.com/longkui-site/p/16747636.html)
-
-**注意：**
-
-本仓库提供的是源代码，并不提供打包成docker的镜像，如需docker镜像，请自行对着文档的教程进行打包。
+- 该文档讲述了如何自定义前端[自定义前端 | HOJ (hdoi.cn)](https://docs.hdoi.cn/use/update-fe/#一、完全自定义前端)
+- 如果需要本地启动后端并对后端进行新增修改，请前往教程学习[onlineJudge搭建教程，HOJ搭建教程，HOJ二开教程 - longkui - 博客园 (cnblogs.com)](https://www.cnblogs.com/longkui-site/p/16747636.html)

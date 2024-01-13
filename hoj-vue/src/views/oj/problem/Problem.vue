@@ -1819,6 +1819,7 @@ export default {
           this.$router.push({
             params: { problemID: res.data.data.problemId },
           });
+          this.openTestCaseDrawer = false;
         }
       )
     },
@@ -1833,6 +1834,7 @@ export default {
           this.$router.push({
             params: { problemID: res.data.data.problemId },
           });
+          this.openTestCaseDrawer = false;
         }
       )
     }

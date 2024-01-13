@@ -458,6 +458,17 @@ export const m = {
   Check_It: 'Check It',
   Accepted: 'Accepted',
 
+  // /views/oj/contest/children/AdvanceSubmit.vue
+  Submission_List: 'Submission List',
+  Enter_Contest_Time: 'Enter Contest Time',
+  Refresh_Information: 'Refresh Information',
+  Thanks_for_Paticipate: 'Thank you for your participation',
+  Already_Advance_Submit: 'You have already submitted your paper in advance',
+  Advance_Submit: 'Advance Submit',
+  Agreement: 'I clearly understand and agree that clicking the "Advance Submit" button in the upper right corner means that I will irreversibly lose the right to submit answers in this competition.',
+  Submit_Success: 'Submission successful',
+  Submit_status: 'Hand in',
+
   // /views/oj/contest/children/ContestPrint.vue
   Print_Title: 'Contest Text Printing',
   Print_tips: 'Please put the text to be printed into the content box, and then submit. Note: please do not submit maliciously!',

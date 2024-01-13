@@ -4,54 +4,52 @@
              v-if="displayStatus==0">
       <div slot="header"
            class="header">
-        <span class="title">提前结束答题</span>
+        <span class="title">{{$t('m.Advance_Submit')}}</span>
         <el-button type="danger"
-                   @click="advanceSubmit">提前结束答题</el-button>
+                   @click="advanceSubmit">{{$t('m.Advance_Submit')}}</el-button>
       </div>
       <div class="body">
-        <p>本人明确理解并同意：点击右上角“提前结束答题”按钮意味着我将不可恢复地失去在本场比赛提交答案的权利。</p>
+        <p>{{$t('m.Agreement')}}</p>
       </div>
     </el-card>
     <el-card class="box-card"
              v-else-if="displayStatus==1">
       <div slot="header"
            class="header">
-        <p class="title">你已经提前交卷</p>
+        <p class="title">{{$t('m.Already_Advance_Submit')}}</p>
       </div>
       <div class="body">
-        <p class="thanks">感谢你的参与</p>
+        <p class="thanks">{{$t('m.Thanks_for_Paticipate')}}</p>
       </div>
     </el-card>
     <el-card v-else>
       <div slot="header"
            class="header">
-        <span class="title">交卷名单</span>
+        <span class="title">{{$t('m.Submission_List')}}</span>
         <el-button type="info"
-                   @click="getAdvanceSubmit">刷新信息</el-button>
+                   @click="getAdvanceSubmit">{{$t('m.Refresh_Information')}}</el-button>
       </div>
-      <el-table :data="list"
-                style="width: 100%">
-        <el-table-column prop="username"
-                         label="用户名"
+      <vxe-table :data="list" align="center">
+        <vxe-table-column field="username"
+                         :title="$t('m.Username')"
                          width="180">
-        </el-table-column>
-        <el-table-column prop="nickname"
-                         label="昵称"
+        </vxe-table-column>
+        <vxe-table-column field="nickname"
+                         :title="$t('m.Nickname')"
                          width="180">
-        </el-table-column>
-        <el-table-column prop="realname"
-                         label="真实姓名">
-        </el-table-column>
-        <el-table-column prop="gmtCreate"
-                         label="注册时间">
-        </el-table-column>
-        <el-table-column prop="gmtModified"
-                         label="提交时间">
-        </el-table-column>
-        <el-table-column prop="status"
-                         label="状态">
-        </el-table-column>
-      </el-table>
+        </vxe-table-column>
+        <vxe-table-column field="realname"
+                         :title="$t('m.RealName')">
+        </vxe-table-column>
+        <vxe-table-column field="gmtCreate"
+                         :title="$t('m.Enter_Contest_Time')">
+        </vxe-table-column>
+        <vxe-table-column field="gmtModified"
+                         :title="$t('m.Submit_Time')">
+        </vxe-table-column>
+        <vxe-table-column field="status"
+                         :title="$t('m.Status')">
+        </vxe-table-column>
       </vxe-table>
     </el-card>
   </div>
@@ -73,16 +71,29 @@ export default {
   },
   methods: {
     advanceSubmit () {
-      this.$confirm('确定要提前结束答题吗', '再次提示', {
+      if(this.$i18n.t('m.Advance_Submit')=='提前结束答题'){
+        this.$confirm('确定要提前结束答题吗', '再次提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
         }).then(() => {
           let cid = this.$route.params.contestID
           api.advanceSubmit(cid).then(() => {
-            myMessage.success("交卷成功")
+            myMessage.success(this.$i18n.t('m.Submit_Success'))
             this.getAdvanceSubmit()
           })
-        })  
+        })
+      }else{
+        this.$confirm('Are you sure you want to advance submit early?', 'Reminder again', {
+          confirmButtonText: 'Sure',
+          cancelButtonText: 'Cancle',
+        }).then(() => {
+          let cid = this.$route.params.contestID
+          api.advanceSubmit(cid).then(() => {
+            myMessage.success(this.$i18n.t('m.Submit_Success'))
+            this.getAdvanceSubmit()
+          })
+        })
+      }
       
     },
     getAdvanceSubmit () {
@@ -105,7 +116,7 @@ export default {
             item.gmtModified = ''
             item.status = ''
           } else {
-            item.status = '已交卷'
+            item.status = this.$i18n.t('m.Submit_status')
           }
         })
       })

@@ -462,6 +462,17 @@ export const m = {
   Check_It: '检查',
   Accepted: 'Accepted',
 
+  // /views/oj/contest/children/AdvanceSubmit.vue
+  Submission_List: '交卷名单',
+  Enter_Contest_Time: '进入比赛时间',
+  Refresh_Information: '刷新信息',
+  Thanks_for_Paticipate: '感谢你的参与',
+  Already_Advance_Submit: '你已经提前交卷',
+  Advance_Submit: '提前结束答题',
+  Agreement: '本人明确理解并同意：点击右上角“提前结束答题”按钮意味着我将不可恢复地失去在本场比赛提交答案的权利。',
+  Submit_Success: '交卷成功',
+  Submit_status: '已交卷',
+
   // /views/oj/contest/children/ContestPrint.vue
   Print_Title: '比赛文本打印',
   Print_tips: '请将需要打印的文本放入内容框内提交。注意：请不要恶意提交！',

@@ -439,7 +439,7 @@ export const m = {
   Allowed_IP_Ranges: 'Allowed IP Ranges',
   Start_Network:'Start IP',
   End_Network:'End IP',
-  Advance_Submit:'Advance_Submit',
+  Advance_Submit:'Advance Submit',
   Contest_Award:'Contest Award',
   Contest_Award_Null:'Do not set',
   Contest_Award_Set_Number:'Set the number',
