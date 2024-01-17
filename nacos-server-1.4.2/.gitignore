@@ -1,8 +1,21 @@
+*.classpath
+
+# Package Files 
+*.jar
+*.war
+*.ear
+*.log
+*.iml
+
 .DS_Store
 node_modules
-/dist
-docker/html
-
+dist/
+target/
+out/
+logs/
+.idea/
+.classpath
+.project
 
 # local env files
 .env.local

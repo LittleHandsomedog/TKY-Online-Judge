@@ -8,7 +8,7 @@ hoj:
     header: token
   judge:
     # 调用判题服务器的token
-    token: 02469f513a384960908ad140bb548370
+    token: 73a8c4bdf288448cb49077ce65960fc1
   db:
     host: 172.20.0.3
     port: 3306

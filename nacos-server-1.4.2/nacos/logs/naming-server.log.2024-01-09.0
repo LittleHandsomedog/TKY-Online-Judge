@@ -1,8 +1,0 @@
-2024-01-09 19:05:20,976 INFO GlobalConfig{taskDispatchPeriod=2000, batchSyncKeyCount=1000, syncRetryDelay=5000, dataWarmup=false, expireInstance=true, loadDataRetryDelayMillis=30000}
-
-2024-01-09 19:05:21,454 INFO open empty service auto clean job, initialDelay : 50000 ms, period : 30000 ms
-
-2024-01-09 19:05:21,455 INFO listen for service meta change
-
-2024-01-09 19:05:25,963 INFO [NACOS-DISTRO] healthy server list changed, old: [172.17.66.86:8848], new: [172.17.66.86:8848]
-
